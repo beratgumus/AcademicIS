@@ -286,3 +286,8 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+!FlatUI/obj/Debug/FlatUI.dll
+!FlatUI/obj/Debug/FlatUI.pdb
+!FlatUI.dll
+!FlatUI.pdb
