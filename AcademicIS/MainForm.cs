@@ -17,7 +17,7 @@ namespace AcademicIS {
         private Point dragCursorPoint;
         private Point dragFormPoint;
         #endregion
-
+        LoginForm loginForm;
         SearchForm searchForm;
         bool isLoading;
 
@@ -117,7 +117,10 @@ namespace AcademicIS {
         }
 
         private void menuLogin_Click(object sender, EventArgs e) {
-            ShowLoading();
+            //ShowLoading();
+            loginForm = new LoginForm();
+            ActivateChildForm(loginForm);
+            FadeOutLoading();
         }
 
         private void delay_Tick(object sender, EventArgs e) {
