@@ -14,10 +14,6 @@ namespace AcademicIS {
             InitializeComponent();
             image.Image = AcademicIS.Properties.Resources.profile1;
 
-            //ScrollBar vScrollBar1 = new VScrollBar();
-            //vScrollBar1.Dock = DockStyle.Right;
-            //vScrollBar1.Scroll += (sender, e) => { containerPanel.VerticalScroll.Value = vScrollBar1.Value; };
-            //containerPanel.Controls.Add(vScrollBar1);
         }
     }
 }

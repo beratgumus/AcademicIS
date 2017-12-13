@@ -29,7 +29,8 @@ namespace AcademicIS {
             isLoading = true;
             searchForm = new SearchForm();
             //ActivateChildForm(searchForm);
-            ActivateChildForm(new ProfileForm());
+            //ActivateChildForm(new ProfileForm());
+            ActivateChildForm(new ProfileEditForm());
             FadeOutLoading();
                                     
         }
