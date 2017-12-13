@@ -19,7 +19,7 @@ namespace AcademicIS
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if (XmlHelper.isAdmin(username.Text, password.Text))
+            if (XmlHelper.isAdmin(usernameTB.Text, passwordTB.Text))
             {
                 MessageBox.Show("WORKINGGGG");
             }
