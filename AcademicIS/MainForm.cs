@@ -144,8 +144,8 @@ namespace AcademicIS {
         }
 
         private void menuLogin_Click(object sender, EventArgs e) {
-<<<<<<< HEAD
-            //ShowLoading();
+
+            ShowLoading();
             if (!isAdminLoggedIn)
             {
                 loginForm = new LoginForm();
@@ -153,12 +153,6 @@ namespace AcademicIS {
                 FadeOutLoading();
             }
             
-=======
-            ShowLoading();
-            loginForm = new LoginForm();
-            ActivateChildForm(loginForm);
-            FadeOutLoading();
->>>>>>> 4453d6730150c5f3f4d6388c542e567e38358b7f
         }
 
         private void delay_Tick(object sender, EventArgs e) {
