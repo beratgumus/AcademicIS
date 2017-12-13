@@ -231,6 +231,7 @@
             this.Controls.Add(this.borderRight);
             this.Controls.Add(this.borderLeft);
             this.Controls.Add(this.headerBG);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
             this.Name = "MainForm";

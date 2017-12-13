@@ -29,7 +29,7 @@ namespace AcademicIS {
             isLoading = true;
             searchForm = new SearchForm();
             ActivateChildForm(searchForm);
-            delay.Start();
+            FadeOutLoading();
                                     
         }
 
@@ -69,19 +69,42 @@ namespace AcademicIS {
             }
         }
         #endregion
-        
+
+
+        /// <summary>
+        /// Fadeout loading screen with default delay (timeout) 
+        /// </summary>
         private void FadeOutLoading() {
-            if (isLoading) {
-                spinner.Hide();
-                spinner.SendToBack();
-                loadingText.Hide();
-                loadingText.SendToBack();
-                loading.FadeOut(false);
-                isLoading = false;
-            }
-            
+            FadeOutLoading(200);
         }
 
+        /// <summary>
+        /// Fadeout loading screen with custom delay
+        /// </summary>
+        /// <param name="msDelay">timeout in miliseconds to start fading out</param>
+        private void FadeOutLoading(int msDelay) {
+            if (isLoading) {
+                delay.Interval = msDelay;
+                delay.Start();
+            }
+        }
+
+        /// <summary>
+        /// Fade outs loading screen. Intented to use with delay.
+        /// Do not use this directly. It may cause visual glitchs.
+        /// </summary>
+        private void StartFadeOut() {
+            spinner.Hide();
+            spinner.SendToBack();
+            loadingText.Hide();
+            loadingText.SendToBack();
+            loading.FadeOut(false);
+            isLoading = false;
+        }
+
+        /// <summary>
+        /// Instantly shows loading page.
+        /// </summary>
         private void ShowLoading() {
             if (!isLoading) {
                 loadingText.Show();
@@ -91,9 +114,12 @@ namespace AcademicIS {
                 loadingText.BringToFront();
                 isLoading = true;
             }
-
         }
 
+        /// <summary>
+        /// Activates child form and closes other forms.
+        /// </summary>
+        /// <param name="_newChildForm"></param>
         private void ActivateChildForm(Form _newChildForm) {
             foreach (Form frm in this.MdiChildren) {
                 if (frm.Text != _newChildForm.Text) {
@@ -118,6 +144,7 @@ namespace AcademicIS {
         }
 
         private void menuLogin_Click(object sender, EventArgs e) {
+<<<<<<< HEAD
             //ShowLoading();
             if (!isAdminLoggedIn)
             {
@@ -126,10 +153,16 @@ namespace AcademicIS {
                 FadeOutLoading();
             }
             
+=======
+            ShowLoading();
+            loginForm = new LoginForm();
+            ActivateChildForm(loginForm);
+            FadeOutLoading();
+>>>>>>> 4453d6730150c5f3f4d6388c542e567e38358b7f
         }
 
         private void delay_Tick(object sender, EventArgs e) {
-            FadeOutLoading();
+            StartFadeOut();
             delay.Stop();
         }
     }

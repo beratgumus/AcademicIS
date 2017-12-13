@@ -123,9 +123,9 @@
             this.Controls.Add(this.flatLabel1);
             this.Controls.Add(this.flatTextBox1);
             this.Controls.Add(this.labelName);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SearchForm";
-            this.Opacity = 0.6D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;

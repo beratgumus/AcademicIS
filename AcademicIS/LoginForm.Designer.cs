@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.loginButton = new FlatUI.FlatButton();
-            this.flatLabel1 = new FlatUI.FlatLabel();
-            this.flatLabel2 = new FlatUI.FlatLabel();
-            this.username = new FlatUI.FlatTextBox();
-            this.password = new FlatUI.FlatTextBox();
-            this.flatLabel3 = new FlatUI.FlatLabel();
+            this.usernameLabel = new FlatUI.FlatLabel();
+            this.passwordLabel = new FlatUI.FlatLabel();
+            this.usernameTB = new FlatUI.FlatTextBox();
+            this.passwordTB = new FlatUI.FlatTextBox();
+            this.titleLabel = new FlatUI.FlatLabel();
             this.SuspendLayout();
             // 
             // loginButton
@@ -42,81 +42,81 @@
             this.loginButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
             this.loginButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.loginButton.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.loginButton.Location = new System.Drawing.Point(317, 256);
+            this.loginButton.Location = new System.Drawing.Point(351, 255);
             this.loginButton.Name = "loginButton";
             this.loginButton.Rounded = false;
             this.loginButton.Size = new System.Drawing.Size(106, 32);
-            this.loginButton.TabIndex = 0;
+            this.loginButton.TabIndex = 2;
             this.loginButton.Text = "Giriş Yap";
             this.loginButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
-            // flatLabel1
+            // usernameLabel
             // 
-            this.flatLabel1.AutoSize = true;
-            this.flatLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.flatLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.flatLabel1.ForeColor = System.Drawing.Color.White;
-            this.flatLabel1.Location = new System.Drawing.Point(174, 159);
-            this.flatLabel1.Name = "flatLabel1";
-            this.flatLabel1.Size = new System.Drawing.Size(95, 20);
-            this.flatLabel1.TabIndex = 1;
-            this.flatLabel1.Text = "Kullanıcı Adı:";
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.usernameLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.usernameLabel.ForeColor = System.Drawing.Color.White;
+            this.usernameLabel.Location = new System.Drawing.Point(210, 161);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(95, 20);
+            this.usernameLabel.TabIndex = 99;
+            this.usernameLabel.Text = "Kullanıcı Adı:";
             // 
-            // flatLabel2
+            // passwordLabel
             // 
-            this.flatLabel2.AutoSize = true;
-            this.flatLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.flatLabel2.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.flatLabel2.ForeColor = System.Drawing.Color.White;
-            this.flatLabel2.Location = new System.Drawing.Point(227, 207);
-            this.flatLabel2.Name = "flatLabel2";
-            this.flatLabel2.Size = new System.Drawing.Size(42, 20);
-            this.flatLabel2.TabIndex = 2;
-            this.flatLabel2.Text = "Şifre:";
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.BackColor = System.Drawing.Color.Transparent;
+            this.passwordLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.passwordLabel.ForeColor = System.Drawing.Color.White;
+            this.passwordLabel.Location = new System.Drawing.Point(263, 208);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(42, 20);
+            this.passwordLabel.TabIndex = 99;
+            this.passwordLabel.Text = "Şifre:";
             // 
-            // username
+            // usernameTB
             // 
-            this.username.BackColor = System.Drawing.Color.Transparent;
-            this.username.FocusOnHover = false;
-            this.username.Location = new System.Drawing.Point(275, 159);
-            this.username.MaxLength = 32767;
-            this.username.Multiline = false;
-            this.username.Name = "username";
-            this.username.ReadOnly = false;
-            this.username.Size = new System.Drawing.Size(186, 29);
-            this.username.TabIndex = 3;
-            this.username.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.username.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.username.UseSystemPasswordChar = false;
+            this.usernameTB.BackColor = System.Drawing.Color.Transparent;
+            this.usernameTB.FocusOnHover = false;
+            this.usernameTB.Location = new System.Drawing.Point(311, 158);
+            this.usernameTB.MaxLength = 32767;
+            this.usernameTB.Multiline = false;
+            this.usernameTB.Name = "usernameTB";
+            this.usernameTB.ReadOnly = false;
+            this.usernameTB.Size = new System.Drawing.Size(186, 29);
+            this.usernameTB.TabIndex = 0;
+            this.usernameTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.usernameTB.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.usernameTB.UseSystemPasswordChar = false;
             // 
-            // password
+            // passwordTB
             // 
-            this.password.AccessibleName = "";
-            this.password.BackColor = System.Drawing.Color.Transparent;
-            this.password.FocusOnHover = false;
-            this.password.Location = new System.Drawing.Point(275, 207);
-            this.password.MaxLength = 32767;
-            this.password.Multiline = false;
-            this.password.Name = "password";
-            this.password.ReadOnly = false;
-            this.password.Size = new System.Drawing.Size(186, 29);
-            this.password.TabIndex = 4;
-            this.password.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.password.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.password.UseSystemPasswordChar = true;
+            this.passwordTB.AccessibleName = "";
+            this.passwordTB.BackColor = System.Drawing.Color.Transparent;
+            this.passwordTB.FocusOnHover = false;
+            this.passwordTB.Location = new System.Drawing.Point(311, 206);
+            this.passwordTB.MaxLength = 32767;
+            this.passwordTB.Multiline = false;
+            this.passwordTB.Name = "passwordTB";
+            this.passwordTB.ReadOnly = false;
+            this.passwordTB.Size = new System.Drawing.Size(186, 29);
+            this.passwordTB.TabIndex = 1;
+            this.passwordTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.passwordTB.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.passwordTB.UseSystemPasswordChar = true;
             // 
-            // flatLabel3
+            // titleLabel
             // 
-            this.flatLabel3.AutoSize = true;
-            this.flatLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.flatLabel3.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            this.flatLabel3.ForeColor = System.Drawing.Color.White;
-            this.flatLabel3.Location = new System.Drawing.Point(296, 74);
-            this.flatLabel3.Name = "flatLabel3";
-            this.flatLabel3.Size = new System.Drawing.Size(127, 25);
-            this.flatLabel3.TabIndex = 5;
-            this.flatLabel3.Text = "Yönetici Girişi";
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.ForeColor = System.Drawing.Color.White;
+            this.titleLabel.Location = new System.Drawing.Point(341, 73);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(127, 25);
+            this.titleLabel.TabIndex = 99;
+            this.titleLabel.Text = "Yönetici Girişi";
             // 
             // LoginForm
             // 
@@ -124,18 +124,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(795, 425);
-            this.Controls.Add(this.flatLabel3);
-            this.Controls.Add(this.password);
-            this.Controls.Add(this.username);
-            this.Controls.Add(this.flatLabel2);
-            this.Controls.Add(this.flatLabel1);
+            this.Controls.Add(this.titleLabel);
+            this.Controls.Add(this.passwordTB);
+            this.Controls.Add(this.usernameTB);
+            this.Controls.Add(this.passwordLabel);
+            this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.loginButton);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
-            this.ResumeLayout(false);
             this.PerformLayout();
 
         }
@@ -143,10 +143,10 @@
         #endregion
 
         private FlatUI.FlatButton loginButton;
-        private FlatUI.FlatLabel flatLabel1;
-        private FlatUI.FlatLabel flatLabel2;
-        private FlatUI.FlatTextBox username;
-        private FlatUI.FlatTextBox password;
-        private FlatUI.FlatLabel flatLabel3;
+        private FlatUI.FlatLabel usernameLabel;
+        private FlatUI.FlatLabel passwordLabel;
+        private FlatUI.FlatTextBox usernameTB;
+        private FlatUI.FlatTextBox passwordTB;
+        private FlatUI.FlatLabel titleLabel;
     }
 }
