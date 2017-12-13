@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace AcademicIS
 {
     public partial class LoginForm : Form
@@ -22,11 +23,13 @@ namespace AcademicIS
             if (XmlHelper.isAdmin(username.Text, password.Text))
             {
                 MessageBox.Show("WORKINGGGG");
+                MainForm.isAdminLoggedIn = true;
             }
             else
             {
                 MessageBox.Show("NOT WORKINGGGG");
             }
+
         }
     }
 }

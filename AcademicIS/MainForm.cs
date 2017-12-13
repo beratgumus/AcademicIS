@@ -19,6 +19,7 @@ namespace AcademicIS {
         #endregion
         LoginForm loginForm;
         SearchForm searchForm;
+        public static bool isAdminLoggedIn=false;
         bool isLoading;
 
         public MainForm() {
@@ -118,9 +119,13 @@ namespace AcademicIS {
 
         private void menuLogin_Click(object sender, EventArgs e) {
             //ShowLoading();
-            loginForm = new LoginForm();
-            ActivateChildForm(loginForm);
-            FadeOutLoading();
+            if (!isAdminLoggedIn)
+            {
+                loginForm = new LoginForm();
+                ActivateChildForm(loginForm);
+                FadeOutLoading();
+            }
+            
         }
 
         private void delay_Tick(object sender, EventArgs e) {
