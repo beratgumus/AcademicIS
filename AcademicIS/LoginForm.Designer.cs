@@ -136,8 +136,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
-            this.Shown += new System.EventHandler(this.LoginForm_Shown);
-            this.ResumeLayout(false);
             this.PerformLayout();
 
         }
