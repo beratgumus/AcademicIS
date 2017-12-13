@@ -198,16 +198,19 @@
             this.loadingText.Size = new System.Drawing.Size(103, 21);
             this.loadingText.TabIndex = 11;
             this.loadingText.Text = "Yükleniyor...";
+            this.loadingText.UseWaitCursor = true;
             // 
             // spinner
             // 
             this.spinner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
             this.spinner.ErrorImage = null;
+            this.spinner.InitialImage = null;
             this.spinner.Location = new System.Drawing.Point(340, 163);
             this.spinner.Name = "spinner";
             this.spinner.Size = new System.Drawing.Size(128, 132);
             this.spinner.TabIndex = 10;
             this.spinner.TabStop = false;
+            this.spinner.UseWaitCursor = true;
             // 
             // loading
             // 
@@ -216,6 +219,7 @@
             this.loading.Name = "loading";
             this.loading.Size = new System.Drawing.Size(791, 424);
             this.loading.TabIndex = 8;
+            this.loading.UseWaitCursor = true;
             // 
             // MainForm
             // 
