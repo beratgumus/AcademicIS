@@ -53,12 +53,13 @@
             // 
             // containerPanel
             // 
+            this.containerPanel.AutoScroll = true;
             this.containerPanel.Controls.Add(this.flatGroupBox1);
             this.containerPanel.Controls.Add(this.groupShortInfo);
             this.containerPanel.Controls.Add(this.groupImage);
-            this.containerPanel.Location = new System.Drawing.Point(12, 56);
+            this.containerPanel.Location = new System.Drawing.Point(12, 41);
             this.containerPanel.Name = "containerPanel";
-            this.containerPanel.Size = new System.Drawing.Size(771, 357);
+            this.containerPanel.Size = new System.Drawing.Size(782, 372);
             this.containerPanel.TabIndex = 0;
             // 
             // flatGroupBox1
@@ -70,7 +71,7 @@
             this.flatGroupBox1.Margin = new System.Windows.Forms.Padding(0);
             this.flatGroupBox1.Name = "flatGroupBox1";
             this.flatGroupBox1.ShowText = true;
-            this.flatGroupBox1.Size = new System.Drawing.Size(761, 133);
+            this.flatGroupBox1.Size = new System.Drawing.Size(751, 133);
             this.flatGroupBox1.TabIndex = 4;
             // 
             // groupShortInfo
@@ -238,10 +239,10 @@
             this.backButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
             this.backButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.backButton.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.backButton.Location = new System.Drawing.Point(12, 12);
+            this.backButton.Location = new System.Drawing.Point(12, 5);
             this.backButton.Name = "backButton";
             this.backButton.Rounded = false;
-            this.backButton.Size = new System.Drawing.Size(106, 32);
+            this.backButton.Size = new System.Drawing.Size(106, 30);
             this.backButton.TabIndex = 1;
             this.backButton.Text = "< Geri";
             this.backButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
@@ -253,14 +254,13 @@
             this.deleteButton.FlatAppearance.BorderSize = 0;
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteButton.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.deleteButton.Location = new System.Drawing.Point(667, 12);
+            this.deleteButton.Location = new System.Drawing.Point(667, 5);
             this.deleteButton.Margin = new System.Windows.Forms.Padding(0);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(106, 32);
+            this.deleteButton.Size = new System.Drawing.Size(106, 30);
             this.deleteButton.TabIndex = 3;
             this.deleteButton.Text = "Sil";
             this.deleteButton.UseVisualStyleBackColor = false;
-            this.deleteButton.Visible = false;
             // 
             // editButton
             // 
@@ -269,14 +269,13 @@
             this.editButton.FlatAppearance.BorderSize = 0;
             this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editButton.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.editButton.Location = new System.Drawing.Point(536, 12);
+            this.editButton.Location = new System.Drawing.Point(536, 5);
             this.editButton.Margin = new System.Windows.Forms.Padding(0);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(106, 32);
+            this.editButton.Size = new System.Drawing.Size(106, 30);
             this.editButton.TabIndex = 4;
             this.editButton.Text = "Düzenle";
             this.editButton.UseVisualStyleBackColor = false;
-            this.editButton.Visible = false;
             // 
             // ProfileForm
             // 

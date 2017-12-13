@@ -28,7 +28,8 @@ namespace AcademicIS {
             spinner.Image = AcademicIS.Properties.Resources.spinner2;
             isLoading = true;
             searchForm = new SearchForm();
-            ActivateChildForm(searchForm);
+            //ActivateChildForm(searchForm);
+            ActivateChildForm(new ProfileForm());
             FadeOutLoading();
                                     
         }
