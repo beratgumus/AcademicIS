@@ -13,21 +13,23 @@ namespace AcademicIS
 {
     public partial class LoginForm : Form
     {
-        public LoginForm()
+        MainForm mainForm;
+        public LoginForm(MainForm mF)
         {
             InitializeComponent();
+            mainForm = mF;
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
             if (XmlHelper.isAdmin(usernameTB.Text, passwordTB.Text))
             {
-                MessageBox.Show("WORKINGGGG");
                 MainForm.isAdminLoggedIn = true;
+                mainForm.hideLoginForm();
             }
             else
             {
-                MessageBox.Show("NOT WORKINGGGG");
+                MessageBox.Show("Kullanıcı adı ve/veya şifre hatalı!");
             }
 
         }

@@ -27,6 +27,7 @@
             this.menu = new System.Windows.Forms.MenuStrip();
             this.menuSearch = new System.Windows.Forms.ToolStripMenuItem();
             this.menuLogin = new System.Windows.Forms.ToolStripMenuItem();
+            this.editAcademcian = new System.Windows.Forms.ToolStripMenuItem();
             this.headerBG = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -53,7 +54,8 @@
             this.menu.Dock = System.Windows.Forms.DockStyle.None;
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuSearch,
-            this.menuLogin});
+            this.menuLogin,
+            this.editAcademcian});
             this.menu.Location = new System.Drawing.Point(-1, 42);
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(802, 30);
@@ -75,6 +77,14 @@
             this.menuLogin.Size = new System.Drawing.Size(90, 26);
             this.menuLogin.Text = "Yönetici Girişi";
             this.menuLogin.Click += new System.EventHandler(this.menuLogin_Click);
+            // 
+            // editAcademcian
+            // 
+            this.editAcademcian.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(240)))));
+            this.editAcademcian.Name = "editAcademcian";
+            this.editAcademcian.Size = new System.Drawing.Size(167, 26);
+            this.editAcademcian.Text = "Akademisyen Kaydı Düzenle";
+            this.editAcademcian.Click += new System.EventHandler(this.editAcademcian_Click);
             // 
             // headerBG
             // 
@@ -269,6 +279,7 @@
         private System.Windows.Forms.Timer delay;
         private System.Windows.Forms.PictureBox spinner;
         private FlatUI.FlatLabel loadingText;
+        private System.Windows.Forms.ToolStripMenuItem editAcademcian;
     }
 }
 
