@@ -117,18 +117,19 @@
             this.listPanel.AutoScroll = true;
             this.listPanel.AutoSize = true;
             this.listPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(80)))), ((int)(((byte)(83)))));
-            this.listPanel.ColumnCount = 1;
-            this.listPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.listPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.listPanel.ColumnCount = 3;
+            this.listPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.listPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 195F));
+            this.listPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
             this.listPanel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.listPanel.ForeColor = System.Drawing.Color.White;
-            this.listPanel.Location = new System.Drawing.Point(44, 99);
+            this.listPanel.Location = new System.Drawing.Point(72, 99);
             this.listPanel.MaximumSize = new System.Drawing.Size(700, 300);
             this.listPanel.MinimumSize = new System.Drawing.Size(450, 30);
             this.listPanel.Name = "listPanel";
             this.listPanel.RowCount = 1;
-            this.listPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.listPanel.Size = new System.Drawing.Size(700, 300);
+            this.listPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.listPanel.Size = new System.Drawing.Size(672, 298);
             this.listPanel.TabIndex = 6;
             // 
             // SearchForm
