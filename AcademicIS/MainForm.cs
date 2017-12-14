@@ -134,6 +134,7 @@ namespace AcademicIS {
                     frm.Dispose();
                 }
             }
+            ShowLoading();
             _newChildForm.MdiParent = this;
             _newChildForm.StartPosition = FormStartPosition.Manual;
             _newChildForm.Location = new Point(0, 70); //offset for custom header
@@ -152,7 +153,6 @@ namespace AcademicIS {
 
         private void menuLogin_Click(object sender, EventArgs e) {
 
-            ShowLoading();
             if (!isAdminLoggedIn)
             {
                 loginForm = new LoginForm(this);

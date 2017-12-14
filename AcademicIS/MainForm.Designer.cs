@@ -82,8 +82,8 @@
             // 
             this.editAcademcian.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(235)))), ((int)(((byte)(240)))));
             this.editAcademcian.Name = "editAcademcian";
-            this.editAcademcian.Size = new System.Drawing.Size(167, 26);
-            this.editAcademcian.Text = "Akademisyen Kaydı Düzenle";
+            this.editAcademcian.Size = new System.Drawing.Size(146, 26);
+            this.editAcademcian.Text = "Akademisyen Kaydı Ekle";
             this.editAcademcian.Click += new System.EventHandler(this.editAcademcian_Click);
             // 
             // headerBG
