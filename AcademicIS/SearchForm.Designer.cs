@@ -29,6 +29,7 @@
             this.flatComboBox1 = new FlatUI.FlatComboBox();
             this.flatComboBox2 = new FlatUI.FlatComboBox();
             this.flatLabel2 = new FlatUI.FlatLabel();
+            this.listPanel = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
             // 
             // labelName
@@ -111,12 +112,32 @@
             this.flatLabel2.TabIndex = 4;
             this.flatLabel2.Text = "Bölüm";
             // 
+            // listPanel
+            // 
+            this.listPanel.AutoScroll = true;
+            this.listPanel.AutoSize = true;
+            this.listPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(80)))), ((int)(((byte)(83)))));
+            this.listPanel.ColumnCount = 1;
+            this.listPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.listPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.listPanel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.listPanel.ForeColor = System.Drawing.Color.White;
+            this.listPanel.Location = new System.Drawing.Point(44, 99);
+            this.listPanel.MaximumSize = new System.Drawing.Size(700, 300);
+            this.listPanel.MinimumSize = new System.Drawing.Size(450, 30);
+            this.listPanel.Name = "listPanel";
+            this.listPanel.RowCount = 1;
+            this.listPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.listPanel.Size = new System.Drawing.Size(700, 300);
+            this.listPanel.TabIndex = 6;
+            // 
             // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(795, 425);
+            this.Controls.Add(this.listPanel);
             this.Controls.Add(this.flatComboBox2);
             this.Controls.Add(this.flatLabel2);
             this.Controls.Add(this.flatComboBox1);
@@ -130,6 +151,7 @@
             this.Text = "SearchForm";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -141,5 +163,6 @@
         private FlatUI.FlatComboBox flatComboBox1;
         private FlatUI.FlatComboBox flatComboBox2;
         private FlatUI.FlatLabel flatLabel2;
+        private System.Windows.Forms.TableLayoutPanel listPanel;
     }
 }

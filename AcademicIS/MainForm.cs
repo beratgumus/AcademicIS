@@ -19,7 +19,7 @@ namespace AcademicIS {
         #endregion
         LoginForm loginForm;
         SearchForm searchForm;
-        ProfileEditForm editForm;
+        ProfileEditForm addForm;
         public static bool isAdminLoggedIn=false;
         bool isLoading;
 
@@ -34,10 +34,6 @@ namespace AcademicIS {
             //ActivateChildForm(new ProfileEditForm());
             FadeOutLoading();
 
-            if (!isAdminLoggedIn)
-            {
-                editAcademcian.Visible = false;
-            }
         }
 
         #region fix for draggable window functions
@@ -166,18 +162,20 @@ namespace AcademicIS {
             delay.Stop();
         }
 
-        private void editAcademcian_Click(object sender, EventArgs e)
+        private void addAcademcian_Click(object sender, EventArgs e)
         {
-            editForm = new ProfileEditForm();
-            ActivateChildForm(editForm);
+            addForm = new ProfileEditForm();
+            ActivateChildForm(addForm);
             FadeOutLoading();
         }
-        public void hideLoginForm()
+        public void HideLoginButton()
         {
             menuLogin.Visible = false;
-            editAcademcian.Visible = true;
-            editForm = new ProfileEditForm();
-            ActivateChildForm(editForm);
+            menuLogin.Enabled = false;
+            menuLogin.Dispose();
+            addAcademcian.Visible = true;
+            addForm = new ProfileEditForm();
+            ActivateChildForm(addForm);
             FadeOutLoading();
         }
     }

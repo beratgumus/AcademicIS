@@ -25,7 +25,7 @@ namespace AcademicIS
             if (XmlHelper.isAdmin(usernameTB.Text, passwordTB.Text))
             {
                 MainForm.isAdminLoggedIn = true;
-                mainForm.hideLoginForm();
+                mainForm.HideLoginButton();
             }
             else
             {
