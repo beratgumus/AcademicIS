@@ -23,6 +23,7 @@ namespace AcademicIS
             SqlDataAdapter adp = new SqlDataAdapter("Select * from Academician", con);
             con.Open();
             adp.Fill(table);
+            con.Close();
             return table;
         }
     }

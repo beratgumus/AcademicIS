@@ -128,7 +128,7 @@
             this.listPanel.MinimumSize = new System.Drawing.Size(450, 30);
             this.listPanel.Name = "listPanel";
             this.listPanel.RowCount = 1;
-            this.listPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.listPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.listPanel.Size = new System.Drawing.Size(672, 298);
             this.listPanel.TabIndex = 6;
             // 
