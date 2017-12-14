@@ -31,7 +31,7 @@ namespace AcademicIS
             {
                 MessageBox.Show("Kullanıcı adı ve/veya şifre hatalı!");
             }
-
+            
         }
     }
 }
