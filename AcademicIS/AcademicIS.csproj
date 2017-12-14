@@ -69,6 +69,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>database.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DbHelper.cs" />
     <Compile Include="Fade.cs">
       <SubType>UserControl</SubType>
     </Compile>
