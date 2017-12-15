@@ -19,6 +19,7 @@ namespace AcademicIS {
         #endregion
         LoginForm loginForm;
         SearchForm searchForm;
+        ProfileForm profileForm;
         ProfileEditForm addForm;
         public static bool isAdminLoggedIn=false;
         bool isLoading;
@@ -124,13 +125,13 @@ namespace AcademicIS {
         /// </summary>
         /// <param name="_newChildForm"></param>
         private void ActivateChildForm(Form _newChildForm) {
+            ShowLoading();
             foreach (Form frm in this.MdiChildren) {
                 if (frm.Text != _newChildForm.Text) {
                     frm.Close();
                     frm.Dispose();
                 }
             }
-            ShowLoading();
             _newChildForm.MdiParent = this;
             _newChildForm.StartPosition = FormStartPosition.Manual;
             _newChildForm.Location = new Point(0, 70); //offset for custom header
@@ -177,6 +178,18 @@ namespace AcademicIS {
             addForm = new ProfileEditForm();
             ActivateChildForm(addForm);
             FadeOutLoading();
+        }
+
+        /// <summary>
+        /// Opens academician profile with given academician id
+        /// </summary>
+        /// <param name="id">identifier of academician</param>
+        public void ShowProfileForm(int id) {
+
+            profileForm = new ProfileForm(id);
+            ActivateChildForm(profileForm);
+            FadeOutLoading();
+
         }
     }
 }

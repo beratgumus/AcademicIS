@@ -17,14 +17,23 @@ namespace AcademicIS
              con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\database.mdf;Integrated Security=True;Connect Timeout=30");
         }
 
-        public DataTable getAcademicians()
+        public DataTable GetAcademicians()
         {
             DataTable table = new DataTable();
-            SqlDataAdapter adp = new SqlDataAdapter("Select * from Academician", con);
+            SqlDataAdapter adp = new SqlDataAdapter("Select Id, Name from Academician", con);
             con.Open();
             adp.Fill(table);
             con.Close();
             return table;
+        }
+
+        public DataRow GetAcademician(int id) {
+            DataTable table = new DataTable();
+            SqlDataAdapter adp = new SqlDataAdapter("Select * from Academician WHERE Id = " + id, con);
+            con.Open();
+            adp.Fill(table);
+            con.Close();
+            return table.Rows[0];
         }
     }
 }
