@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Academician.cs" />
     <Compile Include="database.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
