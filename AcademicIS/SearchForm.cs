@@ -5,46 +5,71 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AcademicIS {
     public partial class SearchForm : Form {
+
+        List<Academician> acList;
+
         public SearchForm() {
             InitializeComponent();
             DbHelper db = new DbHelper();
+            acList = new List<Academician>();
 
-            DataTable table = db.GetAcademicians();
-            addRowToPanel(table);
-            //MessageBox.Show(" " + table.Rows[0][1]);
+            //We are using new thread for database connection to make
+            //our data load asynchronous from UI thread.
+            Thread dbThread = new Thread(delegate () {
+                acList = db.GetAcademicians();
+                AddRowsToPanel();
+
+                this.Invoke((MethodInvoker)delegate {
+                    // Running on the UI thread again.
+                    // Lets fadeout loading screen
+                    ((MainForm)this.MdiParent).FadeOutLoading();
+                });
+
+            });
+            dbThread.Start();
+
+
         }
 
-        private void addRowToPanel(DataTable table)
+
+        private void AddRowsToPanel()
         {
             System.Drawing.Font labelFont = new System.Drawing.Font("Segoe UI", 12F);
             Padding labelPadding = new Padding(20, 5, 0, 0);
             Size buttonSize = new Size(200, 30);
 
-            for (int i = 0; i < table.Rows.Count; i++)
-            {
+            foreach( Academician ac in acList) {
                 FlatUI.FlatLabel nameLabel = new FlatUI.FlatLabel();
-                nameLabel.Text = table.Rows[i][1].ToString();
+                nameLabel.Text = ac.Name;
                 nameLabel.Font = labelFont;
                 nameLabel.Margin = labelPadding;
 
                 FlatUI.FlatButton profileButton = new FlatUI.FlatButton();
                 profileButton.Text = "Özgeçmiş";
-                profileButton.Tag = table.Rows[i][0];
+                profileButton.Tag = ac.Id;
                 profileButton.Size = buttonSize;
                 profileButton.Click += ProfileButton_Click;
 
-                listPanel.Controls.Add(nameLabel, 0, i);
-                listPanel.Controls.Add(profileButton, 1, i);
-                listPanel.Controls.Add(new FlatUI.FlatButton { Text = "Haftalık Program", Size = new Size(200, 30) },2, i);
-                //RowStyle temp = listPanel.RowStyles[listPanel.RowCount - 1];
-                listPanel.RowCount++;
-                //listPanel.RowStyles.Add(new RowStyle(temp.SizeType, temp.Height));
+                //We cant update UI from another thread. We have to be in UI thread.
+                // We can achieve it by invoking an anonymous method.
+                // See: https://stackoverflow.com/a/661662/7822421
+                this.listPanel.Invoke((MethodInvoker)delegate {
+                    // Running on the UI thread again
+                    this.listPanel.Controls.Add(nameLabel, 0, listPanel.RowCount - 1);
+                    this.listPanel.Controls.Add(profileButton, 1, listPanel.RowCount - 1);
+                    this.listPanel.Controls.Add(new FlatUI.FlatButton { Text = "Haftalık Program", Size = new Size(200, 30) }, 2, listPanel.RowCount - 1);
+                    this.listPanel.RowCount++;
+                });
             }
+
+            
+
         }
 
         private void ProfileButton_Click(object sender, EventArgs e) {

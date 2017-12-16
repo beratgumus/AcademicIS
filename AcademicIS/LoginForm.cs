@@ -13,18 +13,16 @@ namespace AcademicIS
 {
     public partial class LoginForm : Form
     {
-        MainForm mainForm;
-        public LoginForm(MainForm mF)
+
+        public LoginForm()
         {
             InitializeComponent();
-            mainForm = mF;
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
             if (XmlHelper.isAdmin(usernameTB.Text, passwordTB.Text))
             {
-                MainForm.isAdminLoggedIn = true;
                 ((MainForm)MdiParent).HideLoginButton();
             }
             else

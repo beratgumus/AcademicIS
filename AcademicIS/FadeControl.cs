@@ -39,7 +39,7 @@ namespace AcademicIS {
                 stopFade(false);
                 blend = 0;
                 createBitmaps();
-                startFade(1);
+                startFade(-1);
 
             }
         }

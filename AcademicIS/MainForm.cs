@@ -21,7 +21,7 @@ namespace AcademicIS {
         SearchForm searchForm;
         ProfileForm profileForm;
         ProfileEditForm addForm;
-        public static bool isAdminLoggedIn=false;
+        bool isAdminLoggedIn;
         bool isLoading;
 
         public MainForm() {
@@ -29,11 +29,23 @@ namespace AcademicIS {
             menu.Renderer = new CustomRenderer(); // appyle custom styles to menu
             spinner.Image = AcademicIS.Properties.Resources.spinner2;
             isLoading = true;
+            isAdminLoggedIn = false;
+
+            loadingText.Hide();
+            loading.SetVisible(false);
+            spinner.Hide();
+            spinner.SendToBack();
+            loadingText.SendToBack();
+            isLoading = false;
+
+            //ShowLoading();
             searchForm = new SearchForm();
-            ActivateChildForm(searchForm);
+            ActivateChildForm(searchForm, false);
             //ActivateChildForm(new ProfileForm());
             //ActivateChildForm(new ProfileEditForm());
-            FadeOutLoading();
+            //FadeOutLoading(1000);
+
+            //search form will call FadeOutLoading when its completely loaded.
 
         }
 
@@ -74,11 +86,10 @@ namespace AcademicIS {
         }
         #endregion
 
-
         /// <summary>
         /// Fadeout loading screen with default delay (timeout) 
         /// </summary>
-        private void FadeOutLoading() {
+        public void FadeOutLoading() {
             FadeOutLoading(200);
         }
 
@@ -124,12 +135,17 @@ namespace AcademicIS {
         /// Activates child form and closes other forms.
         /// </summary>
         /// <param name="_newChildForm"></param>
-        private void ActivateChildForm(Form _newChildForm) {
-            ShowLoading();
+        /// <param name="dispose">true if we want to dispose other child forms</param>
+        private void ActivateChildForm(Form _newChildForm, bool dispose) {
             foreach (Form frm in this.MdiChildren) {
                 if (frm.Text != _newChildForm.Text) {
-                    frm.Close();
-                    frm.Dispose();
+                    if (dispose) {
+                        frm.Close();
+                        frm.Dispose();
+                    }
+                    else {
+                        frm.Hide();
+                    }
                 }
             }
             _newChildForm.MdiParent = this;
@@ -140,20 +156,30 @@ namespace AcademicIS {
         }
 
         private void menuSearch_Click(object sender, EventArgs e) {
+            ShowLoading();
             if (searchForm == null || searchForm.IsDisposed) {
                 //search form is not initialized yet or its closed
                 searchForm = new SearchForm();
+                ActivateChildForm(searchForm, true);
+                //search form will call FadeOutLoading when its completely loaded.
             }
-            ActivateChildForm(searchForm);
-            FadeOutLoading();
+            else {
+                ActivateChildForm(searchForm, true);
+
+                //search form wont call FadeOutLoading because its allready loaded!
+                //so lets call it manually.
+                FadeOutLoading();
+            }
+            
         }
 
         private void menuLogin_Click(object sender, EventArgs e) {
 
             if (!isAdminLoggedIn)
             {
-                loginForm = new LoginForm(this);
-                ActivateChildForm(loginForm);
+                ShowLoading();
+                loginForm = new LoginForm();
+                ActivateChildForm(loginForm, false);
                 FadeOutLoading();
             }
         }
@@ -165,18 +191,30 @@ namespace AcademicIS {
 
         private void addAcademcian_Click(object sender, EventArgs e)
         {
+            ShowLoading();
             addForm = new ProfileEditForm();
-            ActivateChildForm(addForm);
+            ActivateChildForm(addForm, false); //other forms wont be disposed
             FadeOutLoading();
         }
+
+        /// <summary>
+        /// This function will be called from LoginForm after admin
+        /// succesfully logged in.
+        /// </summary>
         public void HideLoginButton()
         {
+            ShowLoading();
+            isAdminLoggedIn = true;
             menuLogin.Visible = false;
             menuLogin.Enabled = false;
             menuLogin.Dispose();
             addAcademcian.Visible = true;
             addForm = new ProfileEditForm();
-            ActivateChildForm(addForm);
+
+            //all other forms will be disposed.
+            //because we have to recreate them for administration options.
+            ActivateChildForm(addForm, true); 
+
             FadeOutLoading();
         }
 
@@ -185,11 +223,15 @@ namespace AcademicIS {
         /// </summary>
         /// <param name="id">identifier of academician</param>
         public void ShowProfileForm(int id) {
-
+            ShowLoading();
             profileForm = new ProfileForm(id);
-            ActivateChildForm(profileForm);
+
+            //search form wont be disposed. because we want to keep last search
+            ActivateChildForm(profileForm, false); 
+
             FadeOutLoading();
 
         }
+
     }
 }

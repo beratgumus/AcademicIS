@@ -17,30 +17,44 @@ namespace AcademicIS
              con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\database.mdf;Integrated Security=True;Connect Timeout=30");
         }
 
-        public DataTable GetAcademicians()
+        public List<Academician> GetAcademicians()
         {
             DataTable table = new DataTable();
-            SqlDataAdapter adp = new SqlDataAdapter("Select Id, Name from Academician", con);
+            SqlDataAdapter adp = new SqlDataAdapter("Select Id, Name, Faculty, Department from Academician", con);
             con.Open();
             adp.Fill(table);
             con.Close();
-            return table;
+
+            List<Academician> acList = new List<Academician>();
+
+            foreach (DataRow row in table.Rows) {
+
+                int id = int.Parse(row[0].ToString());
+                Academician acTemp = new Academician(id, row[1].ToString(),
+                row[2].ToString(), row[3].ToString());
+
+                acList.Add(acTemp);
+            }
+
+            return acList;
         }
 
         public Academician GetAcademician(int id) {
             DataTable table = new DataTable();
-            SqlDataAdapter adp = new SqlDataAdapter("Select * from Academician WHERE Id = " + id, con);
+            SqlDataAdapter adp = new SqlDataAdapter("SELECT * FROM Academician WHERE Id = " + id, con);
             con.Open();
             adp.Fill(table);
             con.Close();
 
-            Academician ac = new Academician(id, table.Rows[0][1].ToString(), 
-                table.Rows[0][2].ToString(), table.Rows[0][3].ToString(), 
-                table.Rows[0][4].ToString(), table.Rows[0][5].ToString(),
-                table.Rows[0][6].ToString(), table.Rows[0][7].ToString(),
-                table.Rows[0][8].ToString(), table.Rows[0][9].ToString());
+            DataRow row = table.Rows[0]; // we will have only one row
+
+            Academician ac = new Academician(id, row[1].ToString(),
+                row[2].ToString(), row[3].ToString(),row[4].ToString(),
+                row[5].ToString(), row[6].ToString(), row[7].ToString(),
+                row[8].ToString(), row[9].ToString());
+
             return ac;
-            //return table.Rows[0];
         }
+
     }
 }
