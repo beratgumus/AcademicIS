@@ -42,6 +42,9 @@
             this.backButton = new FlatUI.FlatButton();
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
+            this.flatLabel1 = new FlatUI.FlatLabel();
+            this.flatLabel2 = new FlatUI.FlatLabel();
+            this.flatLabel3 = new FlatUI.FlatLabel();
             this.containerPanel.SuspendLayout();
             this.groupShortInfo.SuspendLayout();
             this.tabs.SuspendLayout();
@@ -127,6 +130,9 @@
             // tabContact
             // 
             this.tabContact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.tabContact.Controls.Add(this.flatLabel1);
+            this.tabContact.Controls.Add(this.flatLabel2);
+            this.tabContact.Controls.Add(this.flatLabel3);
             this.tabContact.Controls.Add(this.telLabel);
             this.tabContact.Controls.Add(this.webLabel);
             this.tabContact.Controls.Add(this.mailLabel);
@@ -142,33 +148,33 @@
             this.telLabel.BackColor = System.Drawing.Color.Transparent;
             this.telLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.telLabel.ForeColor = System.Drawing.Color.White;
-            this.telLabel.Location = new System.Drawing.Point(18, 65);
+            this.telLabel.Location = new System.Drawing.Point(116, 63);
             this.telLabel.Name = "telLabel";
-            this.telLabel.Size = new System.Drawing.Size(90, 23);
+            this.telLabel.Size = new System.Drawing.Size(375, 23);
             this.telLabel.TabIndex = 5;
-            this.telLabel.Text = "Telefon:";
+            this.telLabel.Text = "00000000000";
             // 
             // webLabel
             // 
             this.webLabel.BackColor = System.Drawing.Color.Transparent;
             this.webLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.webLabel.ForeColor = System.Drawing.Color.White;
-            this.webLabel.Location = new System.Drawing.Point(18, 42);
+            this.webLabel.Location = new System.Drawing.Point(116, 40);
             this.webLabel.Name = "webLabel";
-            this.webLabel.Size = new System.Drawing.Size(90, 23);
+            this.webLabel.Size = new System.Drawing.Size(375, 23);
             this.webLabel.TabIndex = 4;
-            this.webLabel.Text = "Web sayfası:";
+            this.webLabel.Text = "http://domain.com/";
             // 
             // mailLabel
             // 
             this.mailLabel.BackColor = System.Drawing.Color.Transparent;
             this.mailLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.mailLabel.ForeColor = System.Drawing.Color.White;
-            this.mailLabel.Location = new System.Drawing.Point(18, 19);
+            this.mailLabel.Location = new System.Drawing.Point(116, 17);
             this.mailLabel.Name = "mailLabel";
-            this.mailLabel.Size = new System.Drawing.Size(76, 23);
+            this.mailLabel.Size = new System.Drawing.Size(375, 23);
             this.mailLabel.TabIndex = 3;
-            this.mailLabel.Text = "E-posta:";
+            this.mailLabel.Text = "xxx@xxx.com";
             // 
             // groupImage
             // 
@@ -277,6 +283,39 @@
             this.editButton.Text = "Düzenle";
             this.editButton.UseVisualStyleBackColor = false;
             // 
+            // flatLabel1
+            // 
+            this.flatLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.flatLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.flatLabel1.ForeColor = System.Drawing.Color.White;
+            this.flatLabel1.Location = new System.Drawing.Point(20, 63);
+            this.flatLabel1.Name = "flatLabel1";
+            this.flatLabel1.Size = new System.Drawing.Size(90, 23);
+            this.flatLabel1.TabIndex = 8;
+            this.flatLabel1.Text = "Telefon:";
+            // 
+            // flatLabel2
+            // 
+            this.flatLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.flatLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.flatLabel2.ForeColor = System.Drawing.Color.White;
+            this.flatLabel2.Location = new System.Drawing.Point(20, 40);
+            this.flatLabel2.Name = "flatLabel2";
+            this.flatLabel2.Size = new System.Drawing.Size(90, 23);
+            this.flatLabel2.TabIndex = 7;
+            this.flatLabel2.Text = "Web sayfası:";
+            // 
+            // flatLabel3
+            // 
+            this.flatLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.flatLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.flatLabel3.ForeColor = System.Drawing.Color.White;
+            this.flatLabel3.Location = new System.Drawing.Point(20, 17);
+            this.flatLabel3.Name = "flatLabel3";
+            this.flatLabel3.Size = new System.Drawing.Size(76, 23);
+            this.flatLabel3.TabIndex = 6;
+            this.flatLabel3.Text = "E-posta:";
+            // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -322,5 +361,8 @@
         private FlatUI.FlatLabel telLabel;
         private FlatUI.FlatLabel webLabel;
         private FlatUI.FlatLabel mailLabel;
+        private FlatUI.FlatLabel flatLabel1;
+        private FlatUI.FlatLabel flatLabel2;
+        private FlatUI.FlatLabel flatLabel3;
     }
 }

@@ -11,6 +11,8 @@ using System.Windows.Forms;
 namespace AcademicIS {
     public partial class ProfileForm : Form {
 
+        Academician ac;
+
         /// <summary>
         /// Create profile of academican with given id
         /// </summary>
@@ -20,7 +22,16 @@ namespace AcademicIS {
             image.Image = AcademicIS.Properties.Resources.profile1;
 
             DbHelper db = new DbHelper();
-            DataRow academician = db.GetAcademician(id);
+            ac = db.GetAcademician(id);
+
+            nameLabel.Text = ac.Name;
+            facultyLabel.Text = ac.Faculty;
+            departmentLabel.Text = ac.Department;
+
+            mailLabel.Text = ac.Mail;
+            telLabel.Text = ac.Phone;
+            webLabel.Text = ac.Website;
+
         }
 
     }

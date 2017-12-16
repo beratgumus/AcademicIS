@@ -27,13 +27,20 @@ namespace AcademicIS
             return table;
         }
 
-        public DataRow GetAcademician(int id) {
+        public Academician GetAcademician(int id) {
             DataTable table = new DataTable();
             SqlDataAdapter adp = new SqlDataAdapter("Select * from Academician WHERE Id = " + id, con);
             con.Open();
             adp.Fill(table);
             con.Close();
-            return table.Rows[0];
+
+            Academician ac = new Academician(id, table.Rows[0][1].ToString(), 
+                table.Rows[0][2].ToString(), table.Rows[0][3].ToString(), 
+                table.Rows[0][4].ToString(), table.Rows[0][5].ToString(),
+                table.Rows[0][6].ToString(), table.Rows[0][7].ToString(),
+                table.Rows[0][8].ToString(), table.Rows[0][9].ToString());
+            return ac;
+            //return table.Rows[0];
         }
     }
 }
