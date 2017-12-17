@@ -33,14 +33,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.courseSchedule = new System.Windows.Forms.DataGridView();
-            this.database = new AcademicIS.database();
-            this.databaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.backButton = new FlatUI.FlatButton();
             this.Pazartesi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Salı = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Çarşamba = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Perşembe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cuma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.database = new AcademicIS.database();
+            this.databaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.backButton = new FlatUI.FlatButton();
+            this.editButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.courseSchedule)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseBindingSource)).BeginInit();
@@ -88,30 +90,6 @@
             this.courseSchedule.Size = new System.Drawing.Size(710, 358);
             this.courseSchedule.TabIndex = 0;
             // 
-            // database
-            // 
-            this.database.DataSetName = "database";
-            this.database.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // databaseBindingSource
-            // 
-            this.databaseBindingSource.DataSource = this.database;
-            this.databaseBindingSource.Position = 0;
-            // 
-            // backButton
-            // 
-            this.backButton.BackColor = System.Drawing.Color.Transparent;
-            this.backButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.backButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backButton.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.backButton.Location = new System.Drawing.Point(12, 8);
-            this.backButton.Name = "backButton";
-            this.backButton.Rounded = false;
-            this.backButton.Size = new System.Drawing.Size(106, 30);
-            this.backButton.TabIndex = 7;
-            this.backButton.Text = "< Geri";
-            this.backButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            // 
             // Pazartesi
             // 
             this.Pazartesi.HeaderText = "Pazartesi";
@@ -147,12 +125,71 @@
             this.Cuma.ReadOnly = true;
             this.Cuma.Width = 125;
             // 
+            // database
+            // 
+            this.database.DataSetName = "database";
+            this.database.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // databaseBindingSource
+            // 
+            this.databaseBindingSource.DataSource = this.database;
+            this.databaseBindingSource.Position = 0;
+            // 
+            // backButton
+            // 
+            this.backButton.BackColor = System.Drawing.Color.Transparent;
+            this.backButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.backButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backButton.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.backButton.Location = new System.Drawing.Point(12, 8);
+            this.backButton.Name = "backButton";
+            this.backButton.Rounded = false;
+            this.backButton.Size = new System.Drawing.Size(106, 30);
+            this.backButton.TabIndex = 7;
+            this.backButton.Text = "< Geri";
+            this.backButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // editButton
+            // 
+            this.editButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.editButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.editButton.FlatAppearance.BorderSize = 0;
+            this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editButton.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.editButton.Location = new System.Drawing.Point(546, 9);
+            this.editButton.Margin = new System.Windows.Forms.Padding(0);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(106, 30);
+            this.editButton.TabIndex = 9;
+            this.editButton.Text = "Düzenle";
+            this.editButton.UseVisualStyleBackColor = false;
+            this.editButton.Visible = false;
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(85)))), ((int)(((byte)(96)))));
+            this.deleteButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deleteButton.FlatAppearance.BorderSize = 0;
+            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteButton.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.deleteButton.Location = new System.Drawing.Point(677, 9);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(0);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(106, 30);
+            this.deleteButton.TabIndex = 8;
+            this.deleteButton.Text = "Sil";
+            this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Visible = false;
+            // 
             // CourseScheduleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(795, 425);
+            this.Controls.Add(this.editButton);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.courseSchedule);
             this.Cursor = System.Windows.Forms.Cursors.Default;
@@ -179,5 +216,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Çarşamba;
         private System.Windows.Forms.DataGridViewTextBoxColumn Perşembe;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cuma;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button deleteButton;
     }
 }

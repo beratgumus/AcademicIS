@@ -238,7 +238,7 @@ namespace AcademicIS {
 
         public void ShowScheduleForm(int id){
             ShowLoading();
-            scheduleForm = new CourseScheduleForm(id);
+            scheduleForm = new CourseScheduleForm(id,isAdminLoggedIn);
 
             ActivateChildForm(scheduleForm, false);
             FadeOutLoading();

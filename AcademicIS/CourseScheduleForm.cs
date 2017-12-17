@@ -12,10 +12,15 @@ namespace AcademicIS
 {
     public partial class CourseScheduleForm : Form
     {
-        public CourseScheduleForm(int id)
+        public CourseScheduleForm(int id,bool isAdminLoggedIn)
         {
-            InitializeComponent();
 
+            InitializeComponent();
+            if (isAdminLoggedIn)
+            {
+                deleteButton.Visible = true;
+                editButton.Visible = true;
+            }
             Dictionary<int,string>  courseSession = new Dictionary<int, string>();
             courseSession.Add(0, "09:00 - 09:45");
             courseSession.Add(1, "10:00 - 10:45");
@@ -47,9 +52,17 @@ namespace AcademicIS
                 string courseName = table.Rows[i][3].ToString();
 
                 courseSchedule.Rows[sessionNo].Cells[day].Value = courseName;
-                courseSchedule.Rows[sessionNo].Cells[day].Style.BackColor = Color.Red;
+                if (courseName == "Ofis Saati")
+                    courseSchedule.Rows[sessionNo].Cells[day].Style.BackColor = Color.Green;
+                else
+                    courseSchedule.Rows[sessionNo].Cells[day].Style.BackColor = Color.Red;
             }
             
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            ((MainForm)MdiParent).menuSearch_Click(sender, e);
         }
     }
 }

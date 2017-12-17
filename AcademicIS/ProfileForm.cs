@@ -38,7 +38,6 @@ namespace AcademicIS {
             telLabel.Text = ac.Phone;
             webLabel.Text = ac.Website;
 
-            detailsRTB.Rtf = ac.Detail_RTF;
         }
 
         private void backButton_Click(object sender, EventArgs e)
