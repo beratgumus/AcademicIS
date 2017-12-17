@@ -15,7 +15,7 @@ namespace AcademicIS {
         public string Website;
         public string Office_hours;
         public string Education;
-        public string Detail_info;
+        public string Detail_RTF;
 
         public Academician(int id, string name, string faculty, string department, string mail, string phone, string website, string office_hours, string education, string detail_info) {
             Id = id;
@@ -27,7 +27,7 @@ namespace AcademicIS {
             Website = website;
             Office_hours = office_hours;
             Education = education;
-            Detail_info = detail_info;
+            Detail_RTF = detail_info;
         }
 
         public Academician(int id, string name, string faculty, string department) {

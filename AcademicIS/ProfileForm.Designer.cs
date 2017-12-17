@@ -26,6 +26,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileForm));
             this.containerPanel = new System.Windows.Forms.Panel();
             this.flatGroupBox1 = new FlatUI.FlatGroupBox();
+            this.detailsRTB = new System.Windows.Forms.RichTextBox();
             this.groupShortInfo = new FlatUI.FlatGroupBox();
             this.tabs = new FlatUI.FlatTabControl();
             this.tabEducation = new System.Windows.Forms.TabPage();
@@ -45,7 +46,6 @@
             this.backButton = new FlatUI.FlatButton();
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
-            this.detailsRTB = new System.Windows.Forms.RichTextBox();
             this.containerPanel.SuspendLayout();
             this.flatGroupBox1.SuspendLayout();
             this.groupShortInfo.SuspendLayout();
@@ -80,6 +80,20 @@
             this.flatGroupBox1.ShowText = true;
             this.flatGroupBox1.Size = new System.Drawing.Size(751, 236);
             this.flatGroupBox1.TabIndex = 4;
+            // 
+            // detailsRTB
+            // 
+            this.detailsRTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.detailsRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.detailsRTB.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.detailsRTB.ForeColor = System.Drawing.Color.White;
+            this.detailsRTB.Location = new System.Drawing.Point(22, 18);
+            this.detailsRTB.Name = "detailsRTB";
+            this.detailsRTB.ReadOnly = true;
+            this.detailsRTB.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.detailsRTB.Size = new System.Drawing.Size(704, 194);
+            this.detailsRTB.TabIndex = 4;
+            this.detailsRTB.Text = "";
             // 
             // groupShortInfo
             // 
@@ -322,20 +336,6 @@
             this.editButton.Text = "Düzenle";
             this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Visible = false;
-            // 
-            // detailsRTB
-            // 
-            this.detailsRTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
-            this.detailsRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.detailsRTB.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.detailsRTB.ForeColor = System.Drawing.Color.White;
-            this.detailsRTB.Location = new System.Drawing.Point(22, 18);
-            this.detailsRTB.Name = "detailsRTB";
-            this.detailsRTB.ReadOnly = true;
-            this.detailsRTB.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.detailsRTB.Size = new System.Drawing.Size(704, 194);
-            this.detailsRTB.TabIndex = 4;
-            this.detailsRTB.Text = "";
             // 
             // ProfileForm
             // 

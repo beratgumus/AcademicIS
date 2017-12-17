@@ -230,6 +230,7 @@
             this.saveButton.TabIndex = 14;
             this.saveButton.Text = "Kaydet";
             this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // deleteButton
             // 
@@ -271,7 +272,7 @@
             this.decreaseSize});
             this.toolStrip1.Location = new System.Drawing.Point(30, 157);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(118, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(87, 31);
             this.toolStrip1.TabIndex = 17;
             this.toolStrip1.Text = "toolStrip1";
             // 

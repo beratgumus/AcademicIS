@@ -51,5 +51,9 @@ namespace AcademicIS {
 
             detailRichTB.SelectionFont = new Font(selection.Name, selection.Size + diff, style);
         }
+
+        private void saveButton_Click(object sender, EventArgs e) {
+            var a = detailRichTB.Rtf;
+        }
     }
 }

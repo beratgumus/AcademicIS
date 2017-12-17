@@ -48,10 +48,16 @@ namespace AcademicIS
 
             DataRow row = table.Rows[0]; // we will have only one row
 
+            // Academician details are in RTF in database. However, when retrieving data,
+            // something escapes every \ char to \\ . So some string like "{\\rtf1\\ansi"
+            // is becoming "{\\\\rtf1\\\\ansi". Below line hotfixes that problem by simply
+            // replacing it back. Maybe better solution?
+            string rtf = row[9].ToString().Replace("\\\\", "\\"); 
+
             Academician ac = new Academician(id, row[1].ToString(),
                 row[2].ToString(), row[3].ToString(),row[4].ToString(),
                 row[5].ToString(), row[6].ToString(), row[7].ToString(),
-                row[8].ToString(), row[9].ToString());
+                row[8].ToString(), rtf);
 
             return ac;
         }
