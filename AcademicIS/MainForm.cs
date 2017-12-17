@@ -21,6 +21,7 @@ namespace AcademicIS {
         SearchForm searchForm;
         ProfileForm profileForm;
         ProfileEditForm addForm;
+        CourseScheduleForm scheduleForm;
         bool isAdminLoggedIn;
         bool isLoading;
 
@@ -230,6 +231,28 @@ namespace AcademicIS {
             ActivateChildForm(profileForm, false); 
 
             FadeOutLoading();
+
+
+
+        }
+
+        public void ShowScheduleForm(int id){
+            ShowLoading();
+            scheduleForm = new CourseScheduleForm(id);
+
+            ActivateChildForm(scheduleForm, false);
+            FadeOutLoading();
+
+        }
+
+        public void activateSearchForm()
+        {
+            ShowLoading();
+            ActivateChildForm(searchForm, true);
+            FadeOutLoading();
+
+
+
         }
 
     }

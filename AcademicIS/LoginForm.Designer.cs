@@ -132,10 +132,12 @@
             this.Controls.Add(this.loginButton);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
-            this.TransparencyKey = System.Drawing.Color.Fuchsia;
+            this.TransparencyKey = System.Drawing.Color.DimGray;
+            this.ResumeLayout(false);
             this.PerformLayout();
 
         }

@@ -56,5 +56,16 @@ namespace AcademicIS
             return ac;
         }
 
+        public DataTable GetAcademicianSchedule(int id)
+        {
+            DataTable table = new DataTable();
+            SqlDataAdapter adp = new SqlDataAdapter("SELECT * FROM Courses WHERE academician_id = " + id, con);
+            con.Open();
+            adp.Fill(table);
+            con.Close();
+
+            return table;
+        }
+
     }
 }
