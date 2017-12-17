@@ -17,9 +17,15 @@ namespace AcademicIS {
         /// Create profile of academican with given id
         /// </summary>
         /// <param name="id">id number of academican</param>
-        public ProfileForm(int id) {
+        public ProfileForm(int id, bool isAdminLoggedIn) {
             InitializeComponent();
             image.Image = AcademicIS.Properties.Resources.profile1;
+
+            if (!isAdminLoggedIn)
+            {
+                editButton.Visible = false;
+                deleteButton.Visible = false;
+            } 
 
             DbHelper db = new DbHelper();
             ac = db.GetAcademician(id);
@@ -34,5 +40,9 @@ namespace AcademicIS {
 
         }
 
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            ((MainForm)MdiParent).activateSearchForm();
+        }
     }
 }

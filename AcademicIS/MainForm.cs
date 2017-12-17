@@ -224,13 +224,18 @@ namespace AcademicIS {
         /// <param name="id">identifier of academician</param>
         public void ShowProfileForm(int id) {
             ShowLoading();
-            profileForm = new ProfileForm(id);
+            profileForm = new ProfileForm(id,isAdminLoggedIn);
 
             //search form wont be disposed. because we want to keep last search
             ActivateChildForm(profileForm, false); 
 
             FadeOutLoading();
 
+        }
+        public void activateSearchForm()
+        {
+            ShowLoading();
+            ActivateChildForm(searchForm,true);
         }
 
     }

@@ -31,6 +31,9 @@
             this.tabEducation = new System.Windows.Forms.TabPage();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tabContact = new System.Windows.Forms.TabPage();
+            this.flatLabel1 = new FlatUI.FlatLabel();
+            this.flatLabel2 = new FlatUI.FlatLabel();
+            this.flatLabel3 = new FlatUI.FlatLabel();
             this.telLabel = new FlatUI.FlatLabel();
             this.webLabel = new FlatUI.FlatLabel();
             this.mailLabel = new FlatUI.FlatLabel();
@@ -42,9 +45,6 @@
             this.backButton = new FlatUI.FlatButton();
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
-            this.flatLabel1 = new FlatUI.FlatLabel();
-            this.flatLabel2 = new FlatUI.FlatLabel();
-            this.flatLabel3 = new FlatUI.FlatLabel();
             this.containerPanel.SuspendLayout();
             this.groupShortInfo.SuspendLayout();
             this.tabs.SuspendLayout();
@@ -142,6 +142,39 @@
             this.tabContact.Size = new System.Drawing.Size(497, 182);
             this.tabContact.TabIndex = 1;
             this.tabContact.Text = "İletişim";
+            // 
+            // flatLabel1
+            // 
+            this.flatLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.flatLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.flatLabel1.ForeColor = System.Drawing.Color.White;
+            this.flatLabel1.Location = new System.Drawing.Point(20, 63);
+            this.flatLabel1.Name = "flatLabel1";
+            this.flatLabel1.Size = new System.Drawing.Size(90, 23);
+            this.flatLabel1.TabIndex = 8;
+            this.flatLabel1.Text = "Telefon:";
+            // 
+            // flatLabel2
+            // 
+            this.flatLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.flatLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.flatLabel2.ForeColor = System.Drawing.Color.White;
+            this.flatLabel2.Location = new System.Drawing.Point(20, 40);
+            this.flatLabel2.Name = "flatLabel2";
+            this.flatLabel2.Size = new System.Drawing.Size(90, 23);
+            this.flatLabel2.TabIndex = 7;
+            this.flatLabel2.Text = "Web sayfası:";
+            // 
+            // flatLabel3
+            // 
+            this.flatLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.flatLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.flatLabel3.ForeColor = System.Drawing.Color.White;
+            this.flatLabel3.Location = new System.Drawing.Point(20, 17);
+            this.flatLabel3.Name = "flatLabel3";
+            this.flatLabel3.Size = new System.Drawing.Size(76, 23);
+            this.flatLabel3.TabIndex = 6;
+            this.flatLabel3.Text = "E-posta:";
             // 
             // telLabel
             // 
@@ -252,6 +285,7 @@
             this.backButton.TabIndex = 1;
             this.backButton.Text = "< Geri";
             this.backButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // deleteButton
             // 
@@ -282,39 +316,6 @@
             this.editButton.TabIndex = 4;
             this.editButton.Text = "Düzenle";
             this.editButton.UseVisualStyleBackColor = false;
-            // 
-            // flatLabel1
-            // 
-            this.flatLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.flatLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.flatLabel1.ForeColor = System.Drawing.Color.White;
-            this.flatLabel1.Location = new System.Drawing.Point(20, 63);
-            this.flatLabel1.Name = "flatLabel1";
-            this.flatLabel1.Size = new System.Drawing.Size(90, 23);
-            this.flatLabel1.TabIndex = 8;
-            this.flatLabel1.Text = "Telefon:";
-            // 
-            // flatLabel2
-            // 
-            this.flatLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.flatLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.flatLabel2.ForeColor = System.Drawing.Color.White;
-            this.flatLabel2.Location = new System.Drawing.Point(20, 40);
-            this.flatLabel2.Name = "flatLabel2";
-            this.flatLabel2.Size = new System.Drawing.Size(90, 23);
-            this.flatLabel2.TabIndex = 7;
-            this.flatLabel2.Text = "Web sayfası:";
-            // 
-            // flatLabel3
-            // 
-            this.flatLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.flatLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.flatLabel3.ForeColor = System.Drawing.Color.White;
-            this.flatLabel3.Location = new System.Drawing.Point(20, 17);
-            this.flatLabel3.Name = "flatLabel3";
-            this.flatLabel3.Size = new System.Drawing.Size(76, 23);
-            this.flatLabel3.TabIndex = 6;
-            this.flatLabel3.Text = "E-posta:";
             // 
             // ProfileForm
             // 
