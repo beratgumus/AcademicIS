@@ -39,6 +39,8 @@ namespace AcademicIS {
                     // Lets fadeout loading screen
                     ((MainForm)this.MdiParent).FadeOutLoading();
                 });
+
+                //Lets kill that thread after we retrieved data and updated form
                 dbThread.Abort();
 
             });

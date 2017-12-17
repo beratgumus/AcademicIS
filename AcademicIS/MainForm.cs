@@ -75,10 +75,10 @@ namespace AcademicIS {
 
         private class CustomColorTable : ProfessionalColorTable {
             public override Color MenuItemSelectedGradientBegin {
-                get { return Color.FromArgb(39, 174, 96); }
+                get { return Color.FromArgb(38, 174, 114); }
             }
             public override Color MenuItemSelectedGradientEnd {
-                get { return Color.FromArgb(30, 150, 78); }
+                get { return Color.FromArgb(26, 140, 70); }
             }
             public override Color MenuItemBorder {
                 get { return Color.Transparent; }
@@ -155,7 +155,7 @@ namespace AcademicIS {
             _newChildForm.Activate();
         }
 
-        private void menuSearch_Click(object sender, EventArgs e) {
+        public void menuSearch_Click(object sender, EventArgs e) {
             ShowLoading();
             if (searchForm == null || searchForm.IsDisposed) {
                 //search form is not initialized yet or its closed
@@ -229,14 +229,6 @@ namespace AcademicIS {
             //search form wont be disposed. because we want to keep last search
             ActivateChildForm(profileForm, false); 
 
-            FadeOutLoading();
-
-        }
-
-        public void activateSearchForm()
-        {
-            ShowLoading();
-            ActivateChildForm(searchForm, true);
             FadeOutLoading();
         }
 
