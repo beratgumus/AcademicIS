@@ -231,7 +231,7 @@ namespace AcademicIS {
             ActivateChildForm(profileForm, false); 
 
             FadeOutLoading();
-<<<<<<< HEAD
+
 
         }
 
@@ -249,8 +249,7 @@ namespace AcademicIS {
             ShowLoading();
             ActivateChildForm(searchForm, true);
             FadeOutLoading();
-=======
->>>>>>> 5f82c5355b0f927008cffedfd55c236bc977fc86
+
         }
 
     }
