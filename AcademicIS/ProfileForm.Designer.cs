@@ -301,6 +301,7 @@
             this.deleteButton.TabIndex = 3;
             this.deleteButton.Text = "Sil";
             this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Visible = false;
             // 
             // editButton
             // 
@@ -316,6 +317,7 @@
             this.editButton.TabIndex = 4;
             this.editButton.Text = "Düzenle";
             this.editButton.UseVisualStyleBackColor = false;
+            this.editButton.Visible = false;
             // 
             // ProfileForm
             // 

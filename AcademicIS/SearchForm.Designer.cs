@@ -122,13 +122,13 @@
             this.listPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.17262F));
             this.listPanel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.listPanel.ForeColor = System.Drawing.Color.White;
-            this.listPanel.Location = new System.Drawing.Point(72, 99);
-            this.listPanel.MaximumSize = new System.Drawing.Size(700, 300);
+            this.listPanel.Location = new System.Drawing.Point(35, 99);
+            this.listPanel.MaximumSize = new System.Drawing.Size(725, 300);
             this.listPanel.MinimumSize = new System.Drawing.Size(450, 30);
             this.listPanel.Name = "listPanel";
             this.listPanel.RowCount = 1;
             this.listPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.listPanel.Size = new System.Drawing.Size(672, 298);
+            this.listPanel.Size = new System.Drawing.Size(725, 298);
             this.listPanel.TabIndex = 6;
             // 
             // SearchForm

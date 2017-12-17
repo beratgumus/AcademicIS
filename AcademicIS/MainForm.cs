@@ -31,14 +31,14 @@ namespace AcademicIS {
             isLoading = true;
             isAdminLoggedIn = false;
 
-            loadingText.Hide();
-            loading.SetVisible(false);
-            spinner.Hide();
-            spinner.SendToBack();
-            loadingText.SendToBack();
-            isLoading = false;
+            //loadingText.Hide();
+            //loading.SetVisible(false);
+            //spinner.Hide();
+            //spinner.SendToBack();
+            //loadingText.SendToBack();
+            //isLoading = false;
 
-            //ShowLoading();
+            ShowLoading();
             searchForm = new SearchForm();
             ActivateChildForm(searchForm, false);
             //ActivateChildForm(new ProfileForm());
@@ -224,7 +224,7 @@ namespace AcademicIS {
         /// <param name="id">identifier of academician</param>
         public void ShowProfileForm(int id) {
             ShowLoading();
-            profileForm = new ProfileForm(id,isAdminLoggedIn);
+            profileForm = new ProfileForm(id, isAdminLoggedIn);
 
             //search form wont be disposed. because we want to keep last search
             ActivateChildForm(profileForm, false); 
@@ -232,10 +232,12 @@ namespace AcademicIS {
             FadeOutLoading();
 
         }
+
         public void activateSearchForm()
         {
             ShowLoading();
-            ActivateChildForm(searchForm,true);
+            ActivateChildForm(searchForm, true);
+            FadeOutLoading();
         }
 
     }

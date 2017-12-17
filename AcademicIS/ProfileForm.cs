@@ -21,10 +21,10 @@ namespace AcademicIS {
             InitializeComponent();
             image.Image = AcademicIS.Properties.Resources.profile1;
 
-            if (!isAdminLoggedIn)
+            if (isAdminLoggedIn)
             {
-                editButton.Visible = false;
-                deleteButton.Visible = false;
+                editButton.Visible = true;
+                deleteButton.Visible = true;
             } 
 
             DbHelper db = new DbHelper();

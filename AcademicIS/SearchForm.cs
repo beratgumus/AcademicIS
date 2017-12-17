@@ -14,6 +14,8 @@ namespace AcademicIS {
 
         List<Academician> acList;
 
+        Thread dbThread;
+
         #region Styling GUI
         Color hoverColor = Color.FromArgb(35, 168, 109);
         Font labelFont = new Font("Segoe UI", 12F);
@@ -28,7 +30,7 @@ namespace AcademicIS {
 
             //We are using new thread for database connection to make
             //our data load asynchronous from UI thread.
-            Thread dbThread = new Thread(delegate () {
+            dbThread = new Thread(delegate () {
                 acList = db.GetAcademicians();
                 AddRowsToPanel();
 
@@ -37,6 +39,7 @@ namespace AcademicIS {
                     // Lets fadeout loading screen
                     ((MainForm)this.MdiParent).FadeOutLoading();
                 });
+                dbThread.Abort();
 
             });
             dbThread.Start();
@@ -77,6 +80,7 @@ namespace AcademicIS {
                 });
             }
 
+         
         }
 
         private void Profile_Click(object sender, EventArgs e) {
