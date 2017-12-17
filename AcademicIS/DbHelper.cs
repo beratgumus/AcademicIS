@@ -14,7 +14,7 @@ namespace AcademicIS
         SqlConnection con;
         public DbHelper()
         {
-             con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\database.mdf;Integrated Security=True;Connect Timeout=30");
+             con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\database.mdf;Integrated Security=True;Connect Timeout=10");
         }
 
         public List<Academician> GetAcademicians()
