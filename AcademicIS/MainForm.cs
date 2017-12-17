@@ -233,6 +233,7 @@ namespace AcademicIS {
             FadeOutLoading();
 
 
+
         }
 
         public void ShowScheduleForm(int id){
@@ -249,6 +250,8 @@ namespace AcademicIS {
             ShowLoading();
             ActivateChildForm(searchForm, true);
             FadeOutLoading();
+
+
 
         }
 
