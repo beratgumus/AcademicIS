@@ -191,6 +191,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>database.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\bulleted_list.png" />
     <None Include="Resources\decrease_size.png" />
     <None Include="Resources\bold.png" />
     <None Include="Resources\increase_size.png" />

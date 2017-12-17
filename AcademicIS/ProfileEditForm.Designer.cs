@@ -40,11 +40,13 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.rtfTools = new System.Windows.Forms.ToolStrip();
             this.makeBold = new System.Windows.Forms.ToolStripButton();
             this.increaseSize = new System.Windows.Forms.ToolStripButton();
             this.decreaseSize = new System.Windows.Forms.ToolStripButton();
-            this.toolStrip1.SuspendLayout();
+            this.insertBullet = new System.Windows.Forms.ToolStripButton();
+            this.underline = new System.Windows.Forms.ToolStripButton();
+            this.rtfTools.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -262,19 +264,23 @@
             this.button1.Text = "İptal";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // toolStrip1
+            // rtfTools
             // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rtfTools.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(46)))));
+            this.rtfTools.Dock = System.Windows.Forms.DockStyle.None;
+            this.rtfTools.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.rtfTools.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.makeBold,
             this.increaseSize,
-            this.decreaseSize});
-            this.toolStrip1.Location = new System.Drawing.Point(30, 157);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(87, 31);
-            this.toolStrip1.TabIndex = 17;
-            this.toolStrip1.Text = "toolStrip1";
+            this.decreaseSize,
+            this.insertBullet,
+            this.underline});
+            this.rtfTools.Location = new System.Drawing.Point(30, 157);
+            this.rtfTools.Name = "rtfTools";
+            this.rtfTools.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.rtfTools.Size = new System.Drawing.Size(143, 31);
+            this.rtfTools.TabIndex = 17;
+            this.rtfTools.Text = "toolStrip1";
             // 
             // makeBold
             // 
@@ -284,7 +290,7 @@
             this.makeBold.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.makeBold.Name = "makeBold";
             this.makeBold.Size = new System.Drawing.Size(28, 28);
-            this.makeBold.Text = "toolStripButton1";
+            this.makeBold.Text = "Yazıyı kalınlaştır";
             this.makeBold.Click += new System.EventHandler(this.makeBold_Click);
             // 
             // increaseSize
@@ -295,7 +301,7 @@
             this.increaseSize.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.increaseSize.Name = "increaseSize";
             this.increaseSize.Size = new System.Drawing.Size(28, 28);
-            this.increaseSize.Text = "toolStripButton1";
+            this.increaseSize.Text = "Yazı boyutunu büyüt";
             this.increaseSize.Click += new System.EventHandler(this.increaseSize_Click);
             // 
             // decreaseSize
@@ -306,8 +312,31 @@
             this.decreaseSize.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.decreaseSize.Name = "decreaseSize";
             this.decreaseSize.Size = new System.Drawing.Size(28, 28);
-            this.decreaseSize.Text = "toolStripButton2";
+            this.decreaseSize.Text = "Yazı boyutunu küçült";
             this.decreaseSize.Click += new System.EventHandler(this.decreaseSize_Click);
+            // 
+            // insertBullet
+            // 
+            this.insertBullet.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.insertBullet.Image = global::AcademicIS.Properties.Resources.bulleted_list;
+            this.insertBullet.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.insertBullet.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.insertBullet.Name = "insertBullet";
+            this.insertBullet.Size = new System.Drawing.Size(28, 28);
+            this.insertBullet.Text = "Madde Ekle";
+            this.insertBullet.Click += new System.EventHandler(this.insertBullet_Click);
+            // 
+            // underline
+            // 
+            this.underline.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.underline.Image = global::AcademicIS.Properties.Resources.underline;
+            this.underline.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.underline.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.underline.Name = "underline";
+            this.underline.Size = new System.Drawing.Size(28, 28);
+            this.underline.Text = "Altını Çiz";
+            this.underline.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.underline.Click += new System.EventHandler(this.underline_Click);
             // 
             // ProfileEditForm
             // 
@@ -315,7 +344,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(795, 425);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.rtfTools);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.saveButton);
@@ -339,8 +368,8 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ProfileEditForm";
             this.Text = "ProfileEditForm";
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.rtfTools.ResumeLayout(false);
+            this.rtfTools.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -365,9 +394,11 @@
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip rtfTools;
         private System.Windows.Forms.ToolStripButton makeBold;
         private System.Windows.Forms.ToolStripButton increaseSize;
         private System.Windows.Forms.ToolStripButton decreaseSize;
+        private System.Windows.Forms.ToolStripButton insertBullet;
+        private System.Windows.Forms.ToolStripButton underline;
     }
 }

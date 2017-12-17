@@ -32,7 +32,7 @@ namespace AcademicIS {
             isLoading = true;
             isAdminLoggedIn = false;
 
-            //loadingText.Hide();
+            //loadingText.Hide();   //enable this block if you want to see asynchronus loading
             //loading.SetVisible(false);
             //spinner.Hide();
             //spinner.SendToBack();
@@ -42,6 +42,7 @@ namespace AcademicIS {
             ShowLoading();
             searchForm = new SearchForm();
             ActivateChildForm(searchForm, false);
+            //ActivateChildForm(new ProfileEditForm(), false);
             //ActivateChildForm(new ProfileForm());
             //ActivateChildForm(new ProfileEditForm());
             //FadeOutLoading(1000);
@@ -212,9 +213,7 @@ namespace AcademicIS {
             addAcademcian.Visible = true;
             addForm = new ProfileEditForm();
 
-            //all other forms will be disposed.
-            //because we have to recreate them for administration options.
-            ActivateChildForm(addForm, true); 
+            ActivateChildForm(addForm, false); 
 
             FadeOutLoading();
         }

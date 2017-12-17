@@ -13,15 +13,63 @@ namespace AcademicIS {
 
         public ProfileEditForm() {
             InitializeComponent();
+
+            rtfTools.Renderer = new CustomRenderer();
+            //ProfessionalColorTable p = p.
         }
 
+        #region RichTextBox tool menu styling classes
+        private class CustomRenderer : ToolStripProfessionalRenderer {
+            public CustomRenderer() : base(new CustomColorTable()) { }
+        }
+
+        private class CustomColorTable : ProfessionalColorTable {
+            public override Color MenuStripGradientBegin {
+                get { return Color.FromArgb(38, 174, 114); }
+            }
+            public override Color MenuStripGradientEnd {
+                get { return Color.FromArgb(26, 140, 70); }
+            }
+            public override Color MenuItemSelectedGradientBegin {
+                get { return Color.FromArgb(38, 174, 114); }
+            }
+            public override Color MenuItemSelectedGradientEnd {
+                get { return Color.FromArgb(26, 140, 70); }
+            }
+            public override Color MenuItemBorder {
+                get { return Color.Transparent; }
+            }
+            public override Color OverflowButtonGradientBegin {
+                get { return Color.Transparent; }
+            }
+            public override Color OverflowButtonGradientEnd {
+                get { return Color.Transparent; }
+            }
+            public override Color OverflowButtonGradientMiddle {
+                get { return Color.Transparent; }
+            }
+            public override Color ToolStripBorder {
+                get { return Color.Transparent; }
+            }
+            public override Color MenuBorder {
+                get { return Color.Transparent; }
+            }
+
+        }
+        #endregion
+
+        #region RichTextBox Tool menu functions
         private void makeBold_Click(object sender, EventArgs e) {
             Font selection = detailRichTB.SelectionFont;
 
+            FontStyle style;
             if (selection.Bold)
-                detailRichTB.SelectionFont = new Font(selection.Name, selection.Size, FontStyle.Regular);
+                style = FontStyle.Regular;
             else
-                detailRichTB.SelectionFont = new Font(selection.Name, selection.Size, FontStyle.Bold);
+                style = FontStyle.Bold;
+
+            detailRichTB.SelectionFont = new Font(selection.Name, selection.Size, style);
+            
         }
 
         private void increaseSize_Click(object sender, EventArgs e) {
@@ -32,6 +80,11 @@ namespace AcademicIS {
             ChangeFontSize(-1);
         }
 
+        /// <summary>
+        /// Adds given value to font size. for positive values, font size
+        /// will be increased.
+        /// </summary>
+        /// <param name="diff">positive or negative difference</param>
         private void ChangeFontSize(float diff) {
             Font selection = detailRichTB.SelectionFont;
 
@@ -46,6 +99,8 @@ namespace AcademicIS {
             FontStyle style;
             if (selection.Bold)
                 style = FontStyle.Bold;
+            else if (selection.Underline)
+                style = FontStyle.Underline;
             else
                 style = FontStyle.Regular;
 
@@ -55,5 +110,23 @@ namespace AcademicIS {
         private void saveButton_Click(object sender, EventArgs e) {
             var a = detailRichTB.Rtf;
         }
+
+        private void insertBullet_Click(object sender, EventArgs e) {
+            //detailRichTB.
+            detailRichTB.SelectionBullet = !detailRichTB.SelectionBullet;
+        }
+
+        private void underline_Click(object sender, EventArgs e) {
+            Font selection = detailRichTB.SelectionFont;
+
+            FontStyle style;
+            if (selection.Underline)
+                style = FontStyle.Regular;
+            else
+                style = FontStyle.Underline;
+            
+            detailRichTB.SelectionFont =  new Font(selection.Name, selection.Size, style);
+        }
+        #endregion
     }
 }
