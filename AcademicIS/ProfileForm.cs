@@ -42,7 +42,7 @@ namespace AcademicIS {
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            ((MainForm)MdiParent).activateSearchForm();
+            ((MainForm)MdiParent).menuSearch_Click(sender, e);
         }
     }
 }

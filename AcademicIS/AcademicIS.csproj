@@ -65,6 +65,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Academician.cs" />
+    <Compile Include="CourseScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CourseScheduleForm.Designer.cs">
+      <DependentUpon>CourseScheduleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="database.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -113,6 +119,9 @@
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="XmlHelper.cs" />
+    <EmbeddedResource Include="CourseScheduleForm.resx">
+      <DependentUpon>CourseScheduleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Fade.resx">
       <DependentUpon>Fade.cs</DependentUpon>
     </EmbeddedResource>
