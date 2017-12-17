@@ -45,7 +45,9 @@
             this.backButton = new FlatUI.FlatButton();
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
+            this.detailsRTB = new System.Windows.Forms.RichTextBox();
             this.containerPanel.SuspendLayout();
+            this.flatGroupBox1.SuspendLayout();
             this.groupShortInfo.SuspendLayout();
             this.tabs.SuspendLayout();
             this.tabEducation.SuspendLayout();
@@ -69,12 +71,14 @@
             // 
             this.flatGroupBox1.BackColor = System.Drawing.Color.Transparent;
             this.flatGroupBox1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this.flatGroupBox1.Controls.Add(this.detailsRTB);
             this.flatGroupBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.flatGroupBox1.Location = new System.Drawing.Point(10, 276);
             this.flatGroupBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.flatGroupBox1.MinimumSize = new System.Drawing.Size(751, 95);
             this.flatGroupBox1.Name = "flatGroupBox1";
             this.flatGroupBox1.ShowText = true;
-            this.flatGroupBox1.Size = new System.Drawing.Size(751, 133);
+            this.flatGroupBox1.Size = new System.Drawing.Size(751, 236);
             this.flatGroupBox1.TabIndex = 4;
             // 
             // groupShortInfo
@@ -319,6 +323,20 @@
             this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Visible = false;
             // 
+            // detailsRTB
+            // 
+            this.detailsRTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
+            this.detailsRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.detailsRTB.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.detailsRTB.ForeColor = System.Drawing.Color.White;
+            this.detailsRTB.Location = new System.Drawing.Point(22, 18);
+            this.detailsRTB.Name = "detailsRTB";
+            this.detailsRTB.ReadOnly = true;
+            this.detailsRTB.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.detailsRTB.Size = new System.Drawing.Size(704, 194);
+            this.detailsRTB.TabIndex = 4;
+            this.detailsRTB.Text = "";
+            // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -334,6 +352,7 @@
             this.Name = "ProfileForm";
             this.Text = "ProfileForm";
             this.containerPanel.ResumeLayout(false);
+            this.flatGroupBox1.ResumeLayout(false);
             this.groupShortInfo.ResumeLayout(false);
             this.tabs.ResumeLayout(false);
             this.tabEducation.ResumeLayout(false);
@@ -367,5 +386,6 @@
         private FlatUI.FlatLabel flatLabel1;
         private FlatUI.FlatLabel flatLabel2;
         private FlatUI.FlatLabel flatLabel3;
+        private System.Windows.Forms.RichTextBox detailsRTB;
     }
 }

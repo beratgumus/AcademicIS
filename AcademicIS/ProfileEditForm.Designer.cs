@@ -40,6 +40,11 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.makeBold = new System.Windows.Forms.ToolStripButton();
+            this.increaseSize = new System.Windows.Forms.ToolStripButton();
+            this.decreaseSize = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -201,12 +206,13 @@
             // 
             this.detailRichTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
             this.detailRichTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.detailRichTB.BulletIndent = 10;
             this.detailRichTB.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.detailRichTB.ForeColor = System.Drawing.Color.White;
-            this.detailRichTB.Location = new System.Drawing.Point(30, 153);
+            this.detailRichTB.Location = new System.Drawing.Point(30, 188);
             this.detailRichTB.Name = "detailRichTB";
             this.detailRichTB.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.detailRichTB.Size = new System.Drawing.Size(737, 201);
+            this.detailRichTB.Size = new System.Drawing.Size(737, 166);
             this.detailRichTB.TabIndex = 13;
             this.detailRichTB.Text = "";
             // 
@@ -255,12 +261,60 @@
             this.button1.Text = "İptal";
             this.button1.UseVisualStyleBackColor = false;
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.makeBold,
+            this.increaseSize,
+            this.decreaseSize});
+            this.toolStrip1.Location = new System.Drawing.Point(30, 157);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(118, 31);
+            this.toolStrip1.TabIndex = 17;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // makeBold
+            // 
+            this.makeBold.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.makeBold.Image = global::AcademicIS.Properties.Resources.bold;
+            this.makeBold.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.makeBold.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.makeBold.Name = "makeBold";
+            this.makeBold.Size = new System.Drawing.Size(28, 28);
+            this.makeBold.Text = "toolStripButton1";
+            this.makeBold.Click += new System.EventHandler(this.makeBold_Click);
+            // 
+            // increaseSize
+            // 
+            this.increaseSize.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.increaseSize.Image = global::AcademicIS.Properties.Resources.increase_size;
+            this.increaseSize.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.increaseSize.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.increaseSize.Name = "increaseSize";
+            this.increaseSize.Size = new System.Drawing.Size(28, 28);
+            this.increaseSize.Text = "toolStripButton1";
+            this.increaseSize.Click += new System.EventHandler(this.increaseSize_Click);
+            // 
+            // decreaseSize
+            // 
+            this.decreaseSize.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.decreaseSize.Image = global::AcademicIS.Properties.Resources.decrease_size;
+            this.decreaseSize.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.decreaseSize.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.decreaseSize.Name = "decreaseSize";
+            this.decreaseSize.Size = new System.Drawing.Size(28, 28);
+            this.decreaseSize.Text = "toolStripButton2";
+            this.decreaseSize.Click += new System.EventHandler(this.decreaseSize_Click);
+            // 
             // ProfileEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(795, 425);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.saveButton);
@@ -284,6 +338,8 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ProfileEditForm";
             this.Text = "ProfileEditForm";
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,5 +364,9 @@
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton makeBold;
+        private System.Windows.Forms.ToolStripButton increaseSize;
+        private System.Windows.Forms.ToolStripButton decreaseSize;
     }
 }
