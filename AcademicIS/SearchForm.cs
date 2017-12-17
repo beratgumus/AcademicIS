@@ -70,6 +70,12 @@ namespace AcademicIS {
                 profileButton.Size = buttonSize;
                 profileButton.Click += Profile_Click;
 
+                FlatUI.FlatButton scheduleButton = new FlatUI.FlatButton();
+                scheduleButton.Text = "Ders Programı";
+                scheduleButton.Tag = ac.Id;
+                scheduleButton.Size = buttonSize;
+                scheduleButton.Click += Profile_Click;
+
                 //We cant update UI from another thread. We have to be in UI thread.
                 // We can achieve it by invoking an anonymous method.
                 // See: https://stackoverflow.com/a/661662/7822421
@@ -78,6 +84,7 @@ namespace AcademicIS {
                     this.listPanel.Controls.Add(profileLabel, 0, listPanel.RowCount - 1);
                     //this.listPanel.Controls.Add(depLabel, 1, listPanel.RowCount - 1);
                     this.listPanel.Controls.Add(profileButton, 1, listPanel.RowCount - 1);
+                    this.listPanel.Controls.Add(scheduleButton, 2, listPanel.RowCount - 1);
                     this.listPanel.RowCount++;
                 });
             }
@@ -94,9 +101,16 @@ namespace AcademicIS {
             if (!parsed || id < 0)
                 MessageBox.Show("Bir hata meydana geldi");
             else
-                ((MainForm)MdiParent).ShowProfileForm(id);
-
+            {
+                if (ctr.Text == "Özgeçmiş")
+                    ((MainForm)MdiParent).ShowProfileForm(id);
+                
+                else
+                    ((MainForm)MdiParent).ShowScheduleForm(id);
+            }
         }
+
+
 
         #region Styling GUI
         private void ProfileLabel_MouseEnter(object sender, EventArgs e) {
