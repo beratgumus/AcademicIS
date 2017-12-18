@@ -27,7 +27,8 @@ namespace AcademicIS
             }
             else
             {
-                MessageBox.Show("Kullanıcı adı ve/veya şifre hatalı!");
+                alertBox.Visible = true;
+                alertBox.Show();
             }
             
         }

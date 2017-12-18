@@ -34,6 +34,7 @@
             this.usernameTB = new FlatUI.FlatTextBox();
             this.passwordTB = new FlatUI.FlatTextBox();
             this.titleLabel = new FlatUI.FlatLabel();
+            this.alertBox = new FlatUI.FlatAlertBox();
             this.SuspendLayout();
             // 
             // loginButton
@@ -118,12 +119,26 @@
             this.titleLabel.TabIndex = 99;
             this.titleLabel.Text = "Yönetici Girişi";
             // 
+            // alertBox
+            // 
+            this.alertBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.alertBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.alertBox.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.alertBox.kind = FlatUI.FlatAlertBox._Kind.Error;
+            this.alertBox.Location = new System.Drawing.Point(12, 371);
+            this.alertBox.Name = "alertBox";
+            this.alertBox.Size = new System.Drawing.Size(771, 42);
+            this.alertBox.TabIndex = 100;
+            this.alertBox.Text = "Kullanıcı adı ve/veya şifre hatalı!";
+            this.alertBox.Visible = false;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(795, 425);
+            this.Controls.Add(this.alertBox);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.passwordTB);
             this.Controls.Add(this.usernameTB);
@@ -132,7 +147,6 @@
             this.Controls.Add(this.loginButton);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
@@ -150,5 +164,6 @@
         private FlatUI.FlatTextBox usernameTB;
         private FlatUI.FlatTextBox passwordTB;
         private FlatUI.FlatLabel titleLabel;
+        private FlatUI.FlatAlertBox alertBox;
     }
 }
