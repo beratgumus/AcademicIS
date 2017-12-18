@@ -12,24 +12,23 @@ namespace AcademicIS
     {
         private static string Path = @"..\..\Login.xml";
 
-        public static Boolean isAdmin(string username,string password)
-        {
-           
-                XmlDocument xmlDoc = new XmlDocument();
-                xmlDoc.Load(Path);
+        public static Boolean isAdmin(string username, string password) {
 
-                XmlNode loginNode = xmlDoc.ChildNodes[0];
+            if (!File.Exists(Path))
+                return false;
 
-                if(loginNode["username"].InnerText.Trim() == username
-                   && loginNode["password"].InnerText.Trim() == password)
-                {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(Path);
+
+            foreach (XmlNode user in xmlDoc.ChildNodes[1]) {
+                if (user["Name"].InnerText.Trim() == username
+                    && user["Password"].InnerText.Trim() == password) {
+
                     return true;
                 }
-        
+            }
+
             return false;
         }
-
-
-        
     }
 }

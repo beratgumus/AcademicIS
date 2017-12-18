@@ -191,6 +191,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>database.mdf</DependentUpon>
     </Content>
+    <Content Include="Login.xml" />
     <None Include="Resources\bulleted_list.png" />
     <None Include="Resources\decrease_size.png" />
     <None Include="Resources\bold.png" />
