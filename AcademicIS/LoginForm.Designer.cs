@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.loginButton = new FlatUI.FlatButton();
-            this.usernameLabel = new FlatUI.FlatLabel();
             this.passwordLabel = new FlatUI.FlatLabel();
             this.usernameTB = new FlatUI.FlatTextBox();
             this.passwordTB = new FlatUI.FlatTextBox();
             this.titleLabel = new FlatUI.FlatLabel();
             this.alertBox = new FlatUI.FlatAlertBox();
+            this.usernameLabel = new FlatUI.FlatLabel();
+            this.background = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
             this.SuspendLayout();
             // 
             // loginButton
@@ -52,18 +54,6 @@
             this.loginButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
-            // usernameLabel
-            // 
-            this.usernameLabel.AutoSize = true;
-            this.usernameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.usernameLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.usernameLabel.ForeColor = System.Drawing.Color.White;
-            this.usernameLabel.Location = new System.Drawing.Point(210, 161);
-            this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(95, 20);
-            this.usernameLabel.TabIndex = 99;
-            this.usernameLabel.Text = "Kullanıcı Adı:";
-            // 
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
@@ -75,6 +65,7 @@
             this.passwordLabel.Size = new System.Drawing.Size(42, 20);
             this.passwordLabel.TabIndex = 99;
             this.passwordLabel.Text = "Şifre:";
+            this.passwordLabel.Visible = false;
             // 
             // usernameTB
             // 
@@ -113,11 +104,12 @@
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(341, 73);
+            this.titleLabel.Location = new System.Drawing.Point(337, 97);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(127, 25);
             this.titleLabel.TabIndex = 99;
             this.titleLabel.Text = "Yönetici Girişi";
+            this.titleLabel.Visible = false;
             // 
             // alertBox
             // 
@@ -132,6 +124,30 @@
             this.alertBox.Text = "Kullanıcı adı ve/veya şifre hatalı!";
             this.alertBox.Visible = false;
             // 
+            // usernameLabel
+            // 
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.usernameLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.usernameLabel.ForeColor = System.Drawing.Color.White;
+            this.usernameLabel.Location = new System.Drawing.Point(210, 161);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(95, 20);
+            this.usernameLabel.TabIndex = 99;
+            this.usernameLabel.Text = "Kullanıcı Adı:";
+            this.usernameLabel.Visible = false;
+            // 
+            // background
+            // 
+            this.background.ErrorImage = null;
+            this.background.InitialImage = global::AcademicIS.Properties.Resources.login;
+            this.background.Location = new System.Drawing.Point(0, 0);
+            this.background.Name = "background";
+            this.background.Size = new System.Drawing.Size(795, 425);
+            this.background.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.background.TabIndex = 101;
+            this.background.TabStop = false;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -145,12 +161,14 @@
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.loginButton);
+            this.Controls.Add(this.background);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             this.TransparencyKey = System.Drawing.Color.DimGray;
+            ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,11 +177,12 @@
         #endregion
 
         private FlatUI.FlatButton loginButton;
-        private FlatUI.FlatLabel usernameLabel;
         private FlatUI.FlatLabel passwordLabel;
         private FlatUI.FlatTextBox usernameTB;
         private FlatUI.FlatTextBox passwordTB;
         private FlatUI.FlatLabel titleLabel;
         private FlatUI.FlatAlertBox alertBox;
+        private System.Windows.Forms.PictureBox background;
+        private FlatUI.FlatLabel usernameLabel;
     }
 }

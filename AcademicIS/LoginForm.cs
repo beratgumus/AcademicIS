@@ -17,6 +17,7 @@ namespace AcademicIS
         public LoginForm()
         {
             InitializeComponent();
+            background.Image = AcademicIS.Properties.Resources.login;
         }
 
         private void loginButton_Click(object sender, EventArgs e)
