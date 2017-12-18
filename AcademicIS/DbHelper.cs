@@ -11,19 +11,20 @@ namespace AcademicIS
 {
     public class DbHelper
     {
-        SqlConnection con;
+        SqlConnection conn;
         public DbHelper()
         {
-             con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\database.mdf;Integrated Security=True;Connect Timeout=10");
+             conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\database.mdf;Integrated Security=True;Connect Timeout=10");
         }
 
         public List<Academician> GetAcademicians()
         {
             DataTable table = new DataTable();
-            SqlDataAdapter adp = new SqlDataAdapter("Select Id, Name, Faculty, Department from Academician", con);
-            con.Open();
+            string query = "Select Id, Name, Faculty, Department from Academician";
+            SqlDataAdapter adp = new SqlDataAdapter(query, conn);
+            conn.Open();
             adp.Fill(table);
-            con.Close();
+            conn.Close();
 
             List<Academician> acList = new List<Academician>();
 
@@ -39,12 +40,39 @@ namespace AcademicIS
             return acList;
         }
 
+        public Task<List<Academician>> GetAcademiciansAsync() {
+            return Task.Run(() => {
+
+                string query = "Select Id, Name, Faculty, Department from Academician";
+                using (SqlDataAdapter adp = new SqlDataAdapter(query, conn)) {
+
+                    DataTable table = new DataTable();
+                    conn.Open();
+                    adp.Fill(table);
+                    conn.Close();
+
+                    List<Academician> acList = new List<Academician>();
+
+                    foreach (DataRow row in table.Rows) {
+
+                        int id = int.Parse(row[0].ToString());
+                        Academician acTemp = new Academician(id, row[1].ToString(),
+                        row[2].ToString(), row[3].ToString());
+
+                        acList.Add(acTemp);
+                    }
+
+                    return acList;
+                }
+            });
+        }
+
         public Academician GetAcademician(int id) {
             DataTable table = new DataTable();
-            SqlDataAdapter adp = new SqlDataAdapter("SELECT * FROM Academician WHERE Id = " + id, con);
-            con.Open();
+            SqlDataAdapter adp = new SqlDataAdapter("SELECT * FROM Academician WHERE Id = " + id, conn);
+            conn.Open();
             adp.Fill(table);
-            con.Close();
+            conn.Close();
 
             DataRow row = table.Rows[0]; // we will have only one row
 
@@ -65,10 +93,10 @@ namespace AcademicIS
         public DataTable GetAcademicianSchedule(int id)
         {
             DataTable table = new DataTable();
-            SqlDataAdapter adp = new SqlDataAdapter("SELECT * FROM Courses WHERE academician_id = " + id, con);
-            con.Open();
+            SqlDataAdapter adp = new SqlDataAdapter("SELECT * FROM Courses WHERE academician_id = " + id, conn);
+            conn.Open();
             adp.Fill(table);
-            con.Close();
+            conn.Close();
 
             return table;
         }
