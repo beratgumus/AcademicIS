@@ -119,7 +119,7 @@ namespace AcademicIS {
         }
         #endregion
 
-        private void ApplyFilters() {
+        private void ApplyFilters(object sender, EventArgs e) {
             string selectedFac = "", selectedDep = "", searchText = "";
             bool filterByFac = false;
             bool filterByDep = false;
@@ -199,6 +199,12 @@ namespace AcademicIS {
                 listPanel.Controls.Add(scheduleButton, 2, listPanel.RowCount - 1);
                 listPanel.RowCount++;
 
+                if (!facultyCB.Items.Contains(ac.Faculty))
+                    facultyCB.Items.Add(ac.Faculty);
+
+                if (!departmentCB.Items.Contains(ac.Department))
+                    departmentCB.Items.Add(ac.Department);
+
             }
         }
 
@@ -232,8 +238,5 @@ namespace AcademicIS {
         }
         #endregion
 
-        private void searchBox_TextChanged(object sender, EventArgs e) {
-            ApplyFilters();
-        }
     }
 }

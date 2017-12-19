@@ -57,7 +57,7 @@
             this.searchBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.searchBox.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.searchBox.UseSystemPasswordChar = false;
-            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
+            this.searchBox.TextChanged += new System.EventHandler(this.ApplyFilters);
             // 
             // flatLabel1
             // 
@@ -82,12 +82,12 @@
             this.facultyCB.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
             this.facultyCB.ItemHeight = 18;
             this.facultyCB.Items.AddRange(new object[] {
-            "Hepsi",
-            "Mühendislik Fakültesi"});
+            "Hepsi"});
             this.facultyCB.Location = new System.Drawing.Point(72, 26);
             this.facultyCB.Name = "facultyCB";
             this.facultyCB.Size = new System.Drawing.Size(160, 24);
             this.facultyCB.TabIndex = 3;
+            this.facultyCB.SelectedIndexChanged += new System.EventHandler(this.ApplyFilters);
             // 
             // departmentCB
             // 
@@ -101,12 +101,12 @@
             this.departmentCB.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
             this.departmentCB.ItemHeight = 18;
             this.departmentCB.Items.AddRange(new object[] {
-            "Hepsi",
-            "Bilgisayar Mühendisliği"});
+            "Hepsi"});
             this.departmentCB.Location = new System.Drawing.Point(336, 26);
             this.departmentCB.Name = "departmentCB";
             this.departmentCB.Size = new System.Drawing.Size(160, 24);
             this.departmentCB.TabIndex = 5;
+            this.departmentCB.SelectedIndexChanged += new System.EventHandler(this.ApplyFilters);
             // 
             // flatLabel2
             // 
@@ -127,7 +127,7 @@
             this.listPanel.ColumnCount = 3;
             this.listPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 77.82738F));
             this.listPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.17262F));
-            this.listPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 136F));
+            this.listPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
             this.listPanel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.listPanel.ForeColor = System.Drawing.Color.White;
             this.listPanel.Location = new System.Drawing.Point(35, 99);
@@ -156,7 +156,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SearchForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SearchForm";
+            this.Text = " ";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
             this.Load += new System.EventHandler(this.SearchForm_Load);
             this.ResumeLayout(false);
