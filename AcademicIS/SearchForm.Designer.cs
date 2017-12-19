@@ -24,10 +24,10 @@
         /// </summary>
         private void InitializeComponent() {
             this.labelName = new FlatUI.FlatLabel();
-            this.flatTextBox1 = new FlatUI.FlatTextBox();
+            this.searchBox = new FlatUI.FlatTextBox();
             this.flatLabel1 = new FlatUI.FlatLabel();
-            this.flatComboBox1 = new FlatUI.FlatComboBox();
-            this.flatComboBox2 = new FlatUI.FlatComboBox();
+            this.facultyCB = new FlatUI.FlatComboBox();
+            this.departmentCB = new FlatUI.FlatComboBox();
             this.flatLabel2 = new FlatUI.FlatLabel();
             this.listPanel = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
@@ -43,20 +43,21 @@
             this.labelName.TabIndex = 0;
             this.labelName.Text = "İsme göre  filtreleme";
             // 
-            // flatTextBox1
+            // searchBox
             // 
-            this.flatTextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.flatTextBox1.FocusOnHover = false;
-            this.flatTextBox1.Location = new System.Drawing.Point(623, 26);
-            this.flatTextBox1.MaxLength = 32767;
-            this.flatTextBox1.Multiline = false;
-            this.flatTextBox1.Name = "flatTextBox1";
-            this.flatTextBox1.ReadOnly = false;
-            this.flatTextBox1.Size = new System.Drawing.Size(160, 29);
-            this.flatTextBox1.TabIndex = 1;
-            this.flatTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.flatTextBox1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.flatTextBox1.UseSystemPasswordChar = false;
+            this.searchBox.BackColor = System.Drawing.Color.Transparent;
+            this.searchBox.FocusOnHover = false;
+            this.searchBox.Location = new System.Drawing.Point(623, 26);
+            this.searchBox.MaxLength = 32767;
+            this.searchBox.Multiline = false;
+            this.searchBox.Name = "searchBox";
+            this.searchBox.ReadOnly = false;
+            this.searchBox.Size = new System.Drawing.Size(160, 29);
+            this.searchBox.TabIndex = 1;
+            this.searchBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.searchBox.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.searchBox.UseSystemPasswordChar = false;
+            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             // 
             // flatLabel1
             // 
@@ -69,37 +70,43 @@
             this.flatLabel1.TabIndex = 2;
             this.flatLabel1.Text = "Fakülte";
             // 
-            // flatComboBox1
+            // facultyCB
             // 
-            this.flatComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.flatComboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.flatComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.flatComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.flatComboBox1.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.flatComboBox1.ForeColor = System.Drawing.Color.White;
-            this.flatComboBox1.FormattingEnabled = true;
-            this.flatComboBox1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.flatComboBox1.ItemHeight = 18;
-            this.flatComboBox1.Location = new System.Drawing.Point(72, 26);
-            this.flatComboBox1.Name = "flatComboBox1";
-            this.flatComboBox1.Size = new System.Drawing.Size(160, 24);
-            this.flatComboBox1.TabIndex = 3;
+            this.facultyCB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.facultyCB.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.facultyCB.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.facultyCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.facultyCB.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.facultyCB.ForeColor = System.Drawing.Color.White;
+            this.facultyCB.FormattingEnabled = true;
+            this.facultyCB.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.facultyCB.ItemHeight = 18;
+            this.facultyCB.Items.AddRange(new object[] {
+            "Hepsi",
+            "Mühendislik Fakültesi"});
+            this.facultyCB.Location = new System.Drawing.Point(72, 26);
+            this.facultyCB.Name = "facultyCB";
+            this.facultyCB.Size = new System.Drawing.Size(160, 24);
+            this.facultyCB.TabIndex = 3;
             // 
-            // flatComboBox2
+            // departmentCB
             // 
-            this.flatComboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.flatComboBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.flatComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.flatComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.flatComboBox2.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.flatComboBox2.ForeColor = System.Drawing.Color.White;
-            this.flatComboBox2.FormattingEnabled = true;
-            this.flatComboBox2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.flatComboBox2.ItemHeight = 18;
-            this.flatComboBox2.Location = new System.Drawing.Point(336, 26);
-            this.flatComboBox2.Name = "flatComboBox2";
-            this.flatComboBox2.Size = new System.Drawing.Size(160, 24);
-            this.flatComboBox2.TabIndex = 5;
+            this.departmentCB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.departmentCB.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.departmentCB.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.departmentCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.departmentCB.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.departmentCB.ForeColor = System.Drawing.Color.White;
+            this.departmentCB.FormattingEnabled = true;
+            this.departmentCB.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.departmentCB.ItemHeight = 18;
+            this.departmentCB.Items.AddRange(new object[] {
+            "Hepsi",
+            "Bilgisayar Mühendisliği"});
+            this.departmentCB.Location = new System.Drawing.Point(336, 26);
+            this.departmentCB.Name = "departmentCB";
+            this.departmentCB.Size = new System.Drawing.Size(160, 24);
+            this.departmentCB.TabIndex = 5;
             // 
             // flatLabel2
             // 
@@ -120,7 +127,7 @@
             this.listPanel.ColumnCount = 3;
             this.listPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 77.82738F));
             this.listPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.17262F));
-            this.listPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
+            this.listPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 136F));
             this.listPanel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.listPanel.ForeColor = System.Drawing.Color.White;
             this.listPanel.Location = new System.Drawing.Point(35, 99);
@@ -139,11 +146,11 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(795, 425);
             this.Controls.Add(this.listPanel);
-            this.Controls.Add(this.flatComboBox2);
+            this.Controls.Add(this.departmentCB);
             this.Controls.Add(this.flatLabel2);
-            this.Controls.Add(this.flatComboBox1);
+            this.Controls.Add(this.facultyCB);
             this.Controls.Add(this.flatLabel1);
-            this.Controls.Add(this.flatTextBox1);
+            this.Controls.Add(this.searchBox);
             this.Controls.Add(this.labelName);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -160,10 +167,10 @@
         #endregion
 
         private FlatUI.FlatLabel labelName;
-        private FlatUI.FlatTextBox flatTextBox1;
+        private FlatUI.FlatTextBox searchBox;
         private FlatUI.FlatLabel flatLabel1;
-        private FlatUI.FlatComboBox flatComboBox1;
-        private FlatUI.FlatComboBox flatComboBox2;
+        private FlatUI.FlatComboBox facultyCB;
+        private FlatUI.FlatComboBox departmentCB;
         private FlatUI.FlatLabel flatLabel2;
         private System.Windows.Forms.TableLayoutPanel listPanel;
     }

@@ -27,6 +27,8 @@ namespace AcademicIS {
         public SearchForm() {
             InitializeComponent();
             acList = new List<Academician>();
+            facultyCB.SelectedIndex = 0;
+            departmentCB.SelectedIndex = 0;
 
             //StartDataThread(); // to use this method you should disable SearchForm_Load
         }
@@ -104,32 +106,71 @@ namespace AcademicIS {
         #endregion
 
         #region await/async solution for data retrieving
+
         /// <summary>
-        /// This method will be called from SearchForm_Load. It returns a task
-        /// for await keyword. 
+        /// This method will be fired asynchronously after form loaded
         /// </summary>
-        /// <returns></returns>
-        private async Task GetAcListAsync() {
+        private async void SearchForm_Load(object sender, EventArgs e) {
             DbHelper db = new DbHelper();
             acList = await db.GetAcademiciansAsync();
             filteredAcList = acList;
             UpdateList();
             ((MainForm)this.MdiParent).FadeOutLoading();
         }
-
-        /// <summary>
-        /// This method will be fired asynchronously after form loaded
-        /// </summary>
-        private async void SearchForm_Load(object sender, EventArgs e) {
-            await GetAcListAsync();
-        }
         #endregion
 
         private void ApplyFilters() {
+            string selectedFac = "", selectedDep = "", searchText = "";
+            bool filterByFac = false;
+            bool filterByDep = false;
+            bool filterByText = false;
 
+            if (facultyCB.SelectedIndex > 0) {
+                selectedFac = facultyCB.SelectedItem.ToString();
+                filterByFac = true;
+            }
+
+            if (departmentCB.SelectedIndex > 0) {
+                selectedDep = departmentCB.SelectedItem.ToString();
+                filterByDep = true;
+            }
+
+            if (searchBox.Text.Length > 0) {
+                searchText = searchBox.Text.Trim().ToLower();
+                filterByText = true;
+            }
+
+            filteredAcList = new List<Academician>();
+
+            foreach (Academician ac in acList) {
+                bool facFilterPassed = !filterByFac;
+                bool depFilterPassed = !filterByDep;
+                bool textFilterPassed = !filterByText;
+
+                if (filterByFac && ac.Faculty == selectedFac) {
+                    facFilterPassed = true;
+                }
+
+                if (filterByDep && ac.Department == selectedDep) {
+                    depFilterPassed = true;
+                }
+
+                if (filterByText && ac.Name.ToLower().Contains(searchText)) {
+                    textFilterPassed = true;
+                }
+
+                if(facFilterPassed && depFilterPassed && textFilterPassed) {
+                    filteredAcList.Add(ac);
+                }
+            }
+
+            UpdateList();
         }
 
         private void UpdateList() {
+
+            listPanel.Controls.Clear();
+
             foreach (Academician ac in filteredAcList) {
                 FlatUI.FlatLabel profileLabel = new FlatUI.FlatLabel();
                 profileLabel.Text = ac.Name + " - " + ac.Faculty + ", " + ac.Department;
@@ -182,16 +223,17 @@ namespace AcademicIS {
         #region Styling GUI
         private void ProfileLabel_MouseEnter(object sender, EventArgs e) {
             Label lab = (Label)sender;
-            lab.BorderStyle = BorderStyle.FixedSingle;
             lab.ForeColor = hoverColor;
 
         }
         private void ProfileLabel_MouseLeave(object sender, EventArgs e) {
             Label lab = (Label)sender;
-            lab.BorderStyle = BorderStyle.None;
             lab.ForeColor = Color.White;
         }
         #endregion
 
+        private void searchBox_TextChanged(object sender, EventArgs e) {
+            ApplyFilters();
+        }
     }
 }
