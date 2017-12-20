@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AcademicIS {
     static class Program {
+        public static Color BLUE = Color.FromArgb(0, 128, 255);
+        public static Color GREEN = Color.FromArgb(35, 168, 109);
+        public static Color RED = Color.FromArgb(220, 85, 96);
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

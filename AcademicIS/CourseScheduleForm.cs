@@ -26,7 +26,7 @@ namespace AcademicIS
             courseSession.Add(1, "10:00 - 10:45");
             courseSession.Add(2, "11:00 - 11:45");
             courseSession.Add(3, "12:00 - 12:45");
-            courseSession.Add(4, "Öğle Arası");
+            courseSession.Add(4, "Ara");
             courseSession.Add(5, "13:30 - 14:15");
             courseSession.Add(6, "14:30 - 15:15");
             courseSession.Add(7, "15:30 - 16:15");
@@ -34,13 +34,15 @@ namespace AcademicIS
 
             courseSchedule.RowCount = courseSession.Count;
 
-            for (int i =0; i < courseSession.Count ; i++)
+            for (int i = 0; i < courseSession.Count ; i++)
             {
                 string value;
                 //  courseSchedule.Rows.Add();
                 courseSession.TryGetValue(i, out value);
                 courseSchedule.Rows[i].HeaderCell.Value = value;
             }
+            courseSchedule.Rows[4].Height = 20;
+
 
             DbHelper db = new DbHelper();
             DataTable table = db.GetAcademicianSchedule(id);
@@ -51,11 +53,12 @@ namespace AcademicIS
                 int sessionNo = int.Parse(table.Rows[i][2].ToString()) -1;
                 string courseName = table.Rows[i][3].ToString();
 
-                courseSchedule.Rows[sessionNo].Cells[day].Value = courseName;
-                if (courseName == "Ofis Saati")
-                    courseSchedule.Rows[sessionNo].Cells[day].Style.BackColor = Color.Green;
+                DataGridViewCell currentCell = courseSchedule.Rows[sessionNo].Cells[day];
+                currentCell.Value = courseName;
+                if (courseName.ToLower().Contains("ofis"))
+                    currentCell.Style.BackColor = Program.GREEN;
                 else
-                    courseSchedule.Rows[sessionNo].Cells[day].Style.BackColor = Color.Red;
+                    currentCell.Style.BackColor = Program.RED;
             }
             
         }

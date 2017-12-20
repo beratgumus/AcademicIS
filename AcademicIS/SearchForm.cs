@@ -18,7 +18,6 @@ namespace AcademicIS {
         Thread dbThread;
 
         #region Styling GUI
-        Color hoverColor = Color.FromArgb(35, 168, 109);
         Font labelFont = new Font("Segoe UI", 12F);
         Padding labelPadding = new Padding(20, 5, 0, 0);
         Size buttonSize = new Size(200, 30);
@@ -229,7 +228,7 @@ namespace AcademicIS {
         #region Styling GUI
         private void ProfileLabel_MouseEnter(object sender, EventArgs e) {
             Label lab = (Label)sender;
-            lab.ForeColor = hoverColor;
+            lab.ForeColor = Program.GREEN;
 
         }
         private void ProfileLabel_MouseLeave(object sender, EventArgs e) {
