@@ -25,12 +25,24 @@ namespace AcademicIS {
         bool isAdminLoggedIn;
         bool isLoading;
 
+        System.Windows.Forms.Timer colorChanger;
+        int r, g, b;
+
         public MainForm() {
             InitializeComponent();
             menu.Renderer = new CustomRenderer(); // appyle custom styles to menu
             spinner.Image = AcademicIS.Properties.Resources.spinner2;
             isLoading = true;
             isAdminLoggedIn = false;
+
+            r = 0;
+            g = 255;
+            b = 0;
+            colorChanger = new System.Windows.Forms.Timer();
+            colorChanger.Interval = 250;
+            colorChanger.Tick += ChangeColor;
+            colorChanger.Start();
+            colorChanger.Enabled = true;
 
             //loadingText.Hide();   //enable this block if you want to see asynchronus loading
             //loading.SetVisible(false);
@@ -251,6 +263,24 @@ namespace AcademicIS {
             FadeOutLoading();
 
 
+
+        }
+
+        private void ChangeColor(object sender, EventArgs e) {
+            if (r > 0 && b == 0) {
+                r--;
+                g++;
+            }
+            if (g > 0 && r == 0) {
+                g--;
+                b++;
+            }
+            if (b > 0 && g == 0) {
+                r++;
+                b--;
+            }
+            Color c = Color.FromArgb(r, g, b);
+            borderLeft.BackColor = borderBottom.BackColor = borderRight.BackColor = c;
 
         }
 
