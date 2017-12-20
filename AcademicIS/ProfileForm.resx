@@ -117,11 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="richTextBox1.Text" xml:space="preserve">
-    <value>- Lisans: Ege Üniversitesi, Bilgisayar Mühendisliği Bölümü, Türkiye, 1993
-- Yüksek Lisans: Ege Üniversitesi, Fen Bilimleri Enstitüsü, Bilg. Müh. ABD, Türkiye, 1996
-- Doktora: Ege Üniversitesi, Fen Bilimleri Enstitüsü, Bilg. Müh. ABD, Türkiye, 2001
-- Yardımcı Doçentlik: Ege Üniversitesi, Bilgisayar Mühendisliği Bölümü, Türkiye, 2001
-- Doçentlik: Üniversitlerarası Kurul, Türkiye, 2010</value>
-  </data>
 </root>
