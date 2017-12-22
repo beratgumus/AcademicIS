@@ -77,7 +77,14 @@ namespace AcademicIS
 
         public Academician GetAcademician(int id) {
             DataTable table = new DataTable();
-            SqlDataAdapter adp = new SqlDataAdapter("SELECT * FROM Academician WHERE Id = " + id, conn);
+
+            SqlCommand command = new SqlCommand("SELECT * FROM Academician " +
+                " WHERE Id = @Id", conn);
+
+            command.Parameters.AddWithValue("@Id", id);
+            SqlDataAdapter adp = new SqlDataAdapter(command);
+            
+
             conn.Open();
             adp.Fill(table);
             conn.Close();
@@ -102,6 +109,12 @@ namespace AcademicIS
         {
             DataTable table = new DataTable();
             SqlDataAdapter adp = new SqlDataAdapter("SELECT * FROM Courses WHERE academician_id = " + id, conn);
+            SqlCommand command = new SqlCommand("SELECT * FROM Courses " +
+                "WHERE academician_id = @Id", conn);
+
+            command.Parameters.AddWithValue("@Id", id);
+
+            SqlDataAdapter adp = new SqlDataAdapter(command);
             conn.Open();
             adp.Fill(table);
             conn.Close();

@@ -34,7 +34,8 @@ namespace AcademicIS {
             spinner.Image = AcademicIS.Properties.Resources.spinner2;
             isLoading = true;
             isAdminLoggedIn = false;
-
+            DbHelper d = new DbHelper();
+            //d.InsertAcademician(new Academician(1, "a", "b", "c"));
             r = 0;
             g = 255;
             b = 0;
