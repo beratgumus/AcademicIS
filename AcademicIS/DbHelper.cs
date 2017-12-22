@@ -20,7 +20,11 @@ namespace AcademicIS
         public List<Academician> GetAcademicians()
         {
             DataTable table = new DataTable();
-            string query = "Select Id, Name, Faculty, Department from Academician";
+            string query = 
+                "Select A.Id, Name, Faculty_name, Department_name " +
+                "FROM Academician as A, Faculty as F, Department as D " +
+                "WHERE A.Faculty_id = F.Id " +
+                "AND A.Department_id = D.Id ";
             SqlDataAdapter adp = new SqlDataAdapter(query, conn);
             conn.Open();
             adp.Fill(table);
@@ -43,7 +47,11 @@ namespace AcademicIS
         public Task<List<Academician>> GetAcademiciansAsync() {
             return Task.Run(() => {
 
-                string query = "Select Id, Name, Faculty, Department from Academician";
+                string query = 
+                    "Select A.Id, Name, Faculty_name, Department_name " +
+                    "FROM Academician as A, Faculty as F, Department as D " +
+                    "WHERE A.Faculty_id = F.Id " +
+                    "AND A.Department_id = D.Id ";
                 using (SqlDataAdapter adp = new SqlDataAdapter(query, conn)) {
 
                     DataTable table = new DataTable();
