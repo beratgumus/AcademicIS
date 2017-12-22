@@ -78,13 +78,16 @@ namespace AcademicIS
         public Academician GetAcademician(int id) {
             DataTable table = new DataTable();
 
-            SqlCommand command = new SqlCommand("SELECT * FROM Academician " +
-                " WHERE Id = @Id", conn);
+            SqlCommand command = new SqlCommand(
+                "SELECT A.*, F.Faculty_name, D.Department_name " +
+                "FROM Academician as A, Faculty as F, Department as D "+
+                "WHERE A.Id = @Id " +
+                "AND A.Faculty_id = F.Id "+
+                "AND A.Department_id = D.Id ", conn);
 
             command.Parameters.AddWithValue("@Id", id);
             SqlDataAdapter adp = new SqlDataAdapter(command);
             
-
             conn.Open();
             adp.Fill(table);
             conn.Close();
@@ -95,20 +98,43 @@ namespace AcademicIS
             // something escapes every \ char to \\ . So some string like "{\\rtf1\\ansi"
             // is becoming "{\\\\rtf1\\\\ansi". Below line hotfixes that problem by simply
             // replacing it back. Maybe better solution?
-            string rtf = row[9].ToString().Replace("\\\\", "\\"); 
+            string rtf = row["Detail_info"].ToString().Replace("\\\\", "\\");
 
-            Academician ac = new Academician(id, row[1].ToString(),
-                row[2].ToString(), row[3].ToString(),row[4].ToString(),
-                row[5].ToString(), row[6].ToString(),
-                row[7].ToString(), rtf);
+            Academician ac = new Academician(id, row["Name"].ToString(),
+                row["Faculty_name"].ToString(), row["Department_name"].ToString(),
+                row["Mail"].ToString(), row["Phone"].ToString(),
+                row["Website"].ToString(), rtf);
 
             return ac;
+        }
+
+        public bool InsertAcademician(Academician ac) {
+
+            //this query will generate DataTable for insert
+            var sqlQuery = "SELECT * FROM Academician WHERE 0 = 1";
+            SqlDataAdapter adp = new SqlDataAdapter(sqlQuery, conn);
+            DataTable table = new DataTable();
+            adp.Fill(table);
+
+            var row = table.NewRow();
+            row["Name"] = ac.Name;
+            //row["Faculty_id"] = id;
+            //row["Department_id"] = id;
+            row["Mail"] = ac.Mail;
+            row["Phone"] = ac.Phone;
+            row["Website"] = ac.Website;
+
+            table.Rows.Add(row);
+
+            new SqlCommandBuilder(adp);
+            adp.Update(table);
+
+            return true;
         }
 
         public DataTable GetAcademicianSchedule(int id)
         {
             DataTable table = new DataTable();
-            SqlDataAdapter adp = new SqlDataAdapter("SELECT * FROM Courses WHERE academician_id = " + id, conn);
             SqlCommand command = new SqlCommand("SELECT * FROM Courses " +
                 "WHERE academician_id = @Id", conn);
 
