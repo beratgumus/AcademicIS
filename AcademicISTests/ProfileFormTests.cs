@@ -14,11 +14,14 @@ namespace AcademicIS.Tests
         [TestMethod()]
         public void ProfileFormTest()
         {
-            ProfileForm pF = new ProfileForm(1, false);
+            int aId =1;
+            ProfileForm pF = new ProfileForm(aId, false);
             bool editVisibility = pF.GetEditButtonVisibility();
             bool deleteVisibility = pF.GetDeleteButtonVisibility();
+            int actualId = pF.GetAcId();
+            Assert.AreEqual(aId, actualId);
             Assert.AreEqual(false, editVisibility);
-            Assert.AreEqual(false, deleteVisibility);
+            Assert.AreEqual(false, deleteVisibility); 
         }
     }
 }
