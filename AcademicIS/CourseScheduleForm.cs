@@ -96,6 +96,11 @@ namespace AcademicIS
             courseSchedule.EditMode = DataGridViewEditMode.EditOnKeystroke;
             courseSchedule.ReadOnly = false;
             oldTable = ToDataTable(courseSchedule);
+
+            editButton.Visible = false;
+            editButton.SendToBack();
+            saveButton.Visible = true;
+            saveButton.BringToFront();
             
         }
 
@@ -131,6 +136,13 @@ namespace AcademicIS
                     
                 }
             }
+
+            MessageBox.Show("Değişiklikler başarıyla kaydedildi", "Başarılı");
+
+            saveButton.Visible = false;
+            saveButton.SendToBack();
+            editButton.Visible = true;
+            editButton.BringToFront();
 
         }
 

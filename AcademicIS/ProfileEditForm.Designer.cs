@@ -215,6 +215,7 @@
             this.detailRichTB.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.detailRichTB.ForeColor = System.Drawing.Color.White;
             this.detailRichTB.Location = new System.Drawing.Point(30, 188);
+            this.detailRichTB.Margin = new System.Windows.Forms.Padding(5);
             this.detailRichTB.Name = "detailRichTB";
             this.detailRichTB.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.detailRichTB.Size = new System.Drawing.Size(737, 166);

@@ -81,6 +81,7 @@
             // 
             this.detailsRTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(50)))), ((int)(((byte)(52)))));
             this.detailsRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.detailsRTB.BulletIndent = 10;
             this.detailsRTB.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.detailsRTB.ForeColor = System.Drawing.Color.White;
             this.detailsRTB.Location = new System.Drawing.Point(22, 22);
