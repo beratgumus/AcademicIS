@@ -91,6 +91,7 @@
             this.editButton.Text = "Düzenle";
             this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Visible = false;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // deleteButton
             // 

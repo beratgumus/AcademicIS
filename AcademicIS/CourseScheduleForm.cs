@@ -12,14 +12,19 @@ namespace AcademicIS
 {
     public partial class CourseScheduleForm : Form
     {
+        int Id;
+        bool editButtonVisibility = false;
+        bool deleteButtonVisibility = false;
         public CourseScheduleForm(int id,bool isAdminLoggedIn)
         {
-
+            this.Id = id;
             InitializeComponent();
             if (isAdminLoggedIn)
             {
-                deleteButton.Visible = true;
                 editButton.Visible = true;
+                editButtonVisibility = true;
+                deleteButton.Visible = true;
+                deleteButtonVisibility = true;
             }
             Dictionary<int,string>  courseSession = new Dictionary<int, string>();
             courseSession.Add(0, "09:00 - 09:45");
@@ -52,7 +57,7 @@ namespace AcademicIS
                 int day= int.Parse(table.Rows[i][1].ToString()) -1;
                 int sessionNo = int.Parse(table.Rows[i][2].ToString()) -1;
                 string courseName = table.Rows[i][3].ToString();
-
+                
                 DataGridViewCell currentCell = courseSchedule.Rows[sessionNo].Cells[day];
                 currentCell.Value = courseName;
                 if (courseName.ToLower().Contains("ofis"))
@@ -63,9 +68,31 @@ namespace AcademicIS
             
         }
 
+        public bool GetEditButtonVisibility()
+        {
+            return editButtonVisibility;
+        }
+
+        public bool GetDeleteButtonVisibility()
+        {
+            return deleteButtonVisibility;
+        }
+
+        public int GetAcademicianId()
+        {
+            return this.Id;
+        }
+
         private void backButton_Click(object sender, EventArgs e)
         {
             ((MainForm)MdiParent).menuSearch_Click(sender, e);
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            courseSchedule.EditMode = DataGridViewEditMode.EditOnKeystroke;
+            courseSchedule.ReadOnly = false;
+            
         }
     }
 }

@@ -261,8 +261,6 @@ namespace AcademicIS {
             ActivateChildForm(searchForm, true);
             FadeOutLoading();
 
-
-
         }
 
         public bool GetIsAdminLoggedIn()
