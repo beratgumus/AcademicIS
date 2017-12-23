@@ -182,6 +182,27 @@ namespace AcademicIS
             }
         }
 
+        public bool DeleteAcademician(int Id) {
+            try {
+                string query =
+                    "DELETE Academician " +
+                    "WHERE Id = @Id";
+
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Id", Id);
+
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
+            }
+            catch (Exception e) {
+                Console.WriteLine("An error ocurred when inserting new row. Message: " + e.Message);
+                return false;
+            }
+
+        }
+
         public DataTable GetAcademicianSchedule(int id)
         {
             DataTable table = new DataTable();

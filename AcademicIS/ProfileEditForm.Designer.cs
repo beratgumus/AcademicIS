@@ -252,6 +252,7 @@
             this.deleteButton.Text = "Sil";
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Visible = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // cancelButton
             // 
@@ -283,7 +284,7 @@
             this.rtfTools.Location = new System.Drawing.Point(30, 157);
             this.rtfTools.Name = "rtfTools";
             this.rtfTools.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.rtfTools.Size = new System.Drawing.Size(174, 31);
+            this.rtfTools.Size = new System.Drawing.Size(143, 31);
             this.rtfTools.TabIndex = 17;
             this.rtfTools.Text = "toolStrip1";
             // 

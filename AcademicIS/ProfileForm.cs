@@ -12,8 +12,10 @@ namespace AcademicIS {
     public partial class ProfileForm : Form {
 
         Academician ac;
-        bool editButtonVisibility=false;
-        bool deleteButtonVisibility=false;
+        DbHelper db;
+        bool editButtonVisibility = false;
+        bool deleteButtonVisibility = false;
+
         /// <summary>
         /// Create profile of academican with given id
         /// </summary>
@@ -30,7 +32,7 @@ namespace AcademicIS {
                 deleteButtonVisibility = true;
             } 
 
-            DbHelper db = new DbHelper();
+            db = new DbHelper();
             ac = db.GetAcademician(id);
 
             nameLabel.Text = ac.Name;
@@ -70,6 +72,17 @@ namespace AcademicIS {
         private void editButton_Click(object sender, EventArgs e)
         {
             ((MainForm)MdiParent).ShowProfileEditForm(ac);
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e) {
+            var confirmResult = MessageBox.Show("Bu akademisyeni silmek istediğinize emin misiniz?",
+                "Silme İşlemini Onayla", MessageBoxButtons.YesNo);
+
+            if (confirmResult == DialogResult.Yes) {
+                db.DeleteAcademician(ac.Id);
+                ((MainForm)MdiParent).menuSearch_Click(sender, e);
+            }
+            
         }
     }
 }

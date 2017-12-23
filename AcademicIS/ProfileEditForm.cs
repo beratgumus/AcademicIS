@@ -37,6 +37,7 @@ namespace AcademicIS {
 
             if(ac != null) {
                 // we will populate form with given academician data
+                deleteButton.Visible = true;
 
                 nameTB.Text = ac.Name;
                 mailTB.Text = ac.Mail;
@@ -270,6 +271,16 @@ namespace AcademicIS {
             if((pressed == '+' || pressed == '-') && phoneTB.Text.Length > 0)
                 phoneTB.Text = revert;
 
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e) {
+            var confirmResult = MessageBox.Show("Bu akademisyeni silmek istediğinize emin misiniz?",
+                "Silme İşlemini Onayla", MessageBoxButtons.YesNo);
+
+            if (confirmResult == DialogResult.Yes) {
+                db.DeleteAcademician(ac.Id);
+                ((MainForm)MdiParent).menuSearch_Click(sender, e);
+            }
         }
     }
 }
