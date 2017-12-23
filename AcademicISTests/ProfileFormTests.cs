@@ -15,8 +15,10 @@ namespace AcademicIS.Tests
         public void ProfileFormTest()
         {
             ProfileForm pF = new ProfileForm(1, false);
-            bool visibility = pF.getEditButtonVisibility();
-            Assert.AreEqual(false, visibility);
+            bool editVisibility = pF.GetEditButtonVisibility();
+            bool deleteVisibility = pF.GetDeleteButtonVisibility();
+            Assert.AreEqual(false, editVisibility);
+            Assert.AreEqual(false, deleteVisibility);
         }
     }
 }

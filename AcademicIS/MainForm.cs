@@ -255,7 +255,7 @@ namespace AcademicIS {
 
         }
 
-        public void activateSearchForm()
+        public void ActivateSearchForm()
         {
             ShowLoading();
             ActivateChildForm(searchForm, true);
@@ -265,12 +265,12 @@ namespace AcademicIS {
 
         }
 
-        public bool getIsAdminLoggedIn()
+        public bool GetIsAdminLoggedIn()
         {
             return isAdminLoggedIn;
         }
 
-        public void setIsAdminLoggedIn(bool _isAdminLoggedIn)
+        public void SetIsAdminLoggedIn(bool _isAdminLoggedIn)
         {
             this.isAdminLoggedIn =_isAdminLoggedIn;
         }

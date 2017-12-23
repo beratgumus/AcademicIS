@@ -46,9 +46,15 @@ namespace AcademicIS {
             detailsRTB.Rtf = ac.Detail_RTF;
 
         }
-        public bool getEditButtonVisibility()
+
+        public bool GetEditButtonVisibility()
         {
             return editButtonVisibility;
+        }
+
+        public bool GetDeleteButtonVisibility()
+        {
+            return deleteButtonVisibility;
         }
 
         private void backButton_Click(object sender, EventArgs e)

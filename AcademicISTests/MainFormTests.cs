@@ -16,10 +16,12 @@ namespace AcademicIS.Tests
         public void ShowProfileFormTest()
         {
             MainForm mF = new MainForm();
-            mF.setIsAdminLoggedIn(true);
+            mF.SetIsAdminLoggedIn(true);
             ProfileForm pF = mF.ShowProfileForm(1);
-            bool visibility = pF.getEditButtonVisibility();
-            Assert.AreEqual(true, visibility);
+            bool editVisibility = pF.GetEditButtonVisibility();
+            bool deleteVisibility = pF.GetDeleteButtonVisibility();
+            Assert.AreEqual(true, editVisibility);
+            Assert.AreEqual(true, deleteVisibility);
         }
     }
 }
