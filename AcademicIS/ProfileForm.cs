@@ -49,6 +49,11 @@ namespace AcademicIS {
 
         }
 
+        public int GetAcId()
+        {
+            return ac.Id;
+        }
+
         public bool GetEditButtonVisibility()
         {
             return editButtonVisibility;
