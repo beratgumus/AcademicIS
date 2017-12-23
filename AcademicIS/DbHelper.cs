@@ -150,7 +150,7 @@ namespace AcademicIS
         {
             DataTable table = new DataTable();
             SqlCommand command = new SqlCommand("SELECT * FROM Courses " +
-                "WHERE academician_id = @Id", conn);
+                "WHERE Academician_id = @Id", conn);
 
             command.Parameters.AddWithValue("@Id", id);
 
@@ -161,19 +161,50 @@ namespace AcademicIS
 
             return table;
         }
+        public void UpdateAcademicianCourse(int Id, int day, int session, string newValue)
+        {
+            try
+            {
+                string query =
+                    "UPDATE  Courses " +
+                    "SET Course_name = @Course_name " +
+                    "WHERE Academician_id = @Academician_id " +
+                    "AND   Course_day = @Course_day " +
+                    "AND   Course_session = @Course_session ";
+
+
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@Academician_id", Id);
+                cmd.Parameters.AddWithValue("@Course_day", day);
+                cmd.Parameters.AddWithValue("@Course_session", session);
+                cmd.Parameters.AddWithValue("@Course_name", newValue);
+
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error ocurred when updating a row. Message: " + e.Message);
+            }
+        }
+
         public void InsertAcademicianCourse(int Id, int day, int session, string newValue)
         {
             try
             {
                 string query =
                     "INSERT INTO Courses " +
-                    "VALUES(@academician_id, @Course_day, @Course_session, @Course_name )";
+                    "VALUES(@Academician_id, @Course_day, @Course_session, @Course_name )";
 
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
-                cmd.Parameters.AddWithValue("@academician_id", Id);
+                cmd.Parameters.AddWithValue("@Academician_id", Id);
                 cmd.Parameters.AddWithValue("@Course_day", day);
                 cmd.Parameters.AddWithValue("@Course_session", session);
                 cmd.Parameters.AddWithValue("@Course_name", newValue);
@@ -186,6 +217,11 @@ namespace AcademicIS
             {
                 Console.WriteLine("An error ocurred when inserting new row. Message: " + e.Message);
             }
+        }
+
+        public void DeleteAcademicianCourse(int Id, int day, int session)
+        {
+
         }
         public Dictionary<FacDep, List<FacDep>> GetFacultyAndDepartments() {
 
