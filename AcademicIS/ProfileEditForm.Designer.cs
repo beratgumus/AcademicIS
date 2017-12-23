@@ -39,13 +39,14 @@
             this.detailRichTB = new System.Windows.Forms.RichTextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.rtfTools = new System.Windows.Forms.ToolStrip();
             this.makeBold = new System.Windows.Forms.ToolStripButton();
             this.increaseSize = new System.Windows.Forms.ToolStripButton();
             this.decreaseSize = new System.Windows.Forms.ToolStripButton();
             this.insertBullet = new System.Windows.Forms.ToolStripButton();
             this.underline = new System.Windows.Forms.ToolStripButton();
+            this.alertBox = new FlatUI.FlatAlertBox();
             this.rtfTools.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -250,21 +251,23 @@
             this.deleteButton.TabIndex = 15;
             this.deleteButton.Text = "Sil";
             this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Visible = false;
             // 
-            // button1
+            // cancelButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.button1.Location = new System.Drawing.Point(346, 370);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 30);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "İptal";
-            this.button1.UseVisualStyleBackColor = false;
+            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cancelButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cancelButton.FlatAppearance.BorderSize = 0;
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelButton.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.cancelButton.Location = new System.Drawing.Point(346, 370);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(0);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(106, 30);
+            this.cancelButton.TabIndex = 16;
+            this.cancelButton.Text = "İptal";
+            this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // rtfTools
             // 
@@ -280,7 +283,7 @@
             this.rtfTools.Location = new System.Drawing.Point(30, 157);
             this.rtfTools.Name = "rtfTools";
             this.rtfTools.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.rtfTools.Size = new System.Drawing.Size(143, 31);
+            this.rtfTools.Size = new System.Drawing.Size(174, 31);
             this.rtfTools.TabIndex = 17;
             this.rtfTools.Text = "toolStrip1";
             // 
@@ -340,6 +343,19 @@
             this.underline.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.underline.Click += new System.EventHandler(this.underline_Click);
             // 
+            // alertBox
+            // 
+            this.alertBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.alertBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.alertBox.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.alertBox.kind = FlatUI.FlatAlertBox._Kind.Error;
+            this.alertBox.Location = new System.Drawing.Point(30, 370);
+            this.alertBox.Name = "alertBox";
+            this.alertBox.Size = new System.Drawing.Size(737, 42);
+            this.alertBox.TabIndex = 18;
+            this.alertBox.Text = "Form geçerli değil.";
+            this.alertBox.Visible = false;
+            // 
             // ProfileEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -347,7 +363,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(795, 425);
             this.Controls.Add(this.rtfTools);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.detailRichTB);
@@ -364,6 +380,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.alertBox);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -395,12 +412,13 @@
         private System.Windows.Forms.RichTextBox detailRichTB;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button deleteButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.ToolStrip rtfTools;
         private System.Windows.Forms.ToolStripButton makeBold;
         private System.Windows.Forms.ToolStripButton increaseSize;
         private System.Windows.Forms.ToolStripButton decreaseSize;
         private System.Windows.Forms.ToolStripButton insertBullet;
         private System.Windows.Forms.ToolStripButton underline;
+        private FlatUI.FlatAlertBox alertBox;
     }
 }
