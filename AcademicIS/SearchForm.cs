@@ -217,11 +217,10 @@ namespace AcademicIS {
                 MessageBox.Show("Bir hata meydana geldi");
             else
             {
-                if (ctr.Text == "Özgeçmiş")
-                    ((MainForm)MdiParent).ShowProfileForm(id);
-                
+                if (ctr.Text == "Ders Programı")
+                    ((MainForm)MdiParent).ShowScheduleForm(id);                
                 else
-                    ((MainForm)MdiParent).ShowScheduleForm(id);
+                    ((MainForm)MdiParent).ShowProfileForm(id);
             }
         }
 

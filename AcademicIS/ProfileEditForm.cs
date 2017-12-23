@@ -212,6 +212,8 @@ namespace AcademicIS {
                     //inserted to db successfully, redirect to profile page
                     ((MainForm)MdiParent).ShowProfileForm(insertedId);
                 }
+                else
+                    ShowError("Yeni kayıt eklenirken bir hata oluştu.");
             }
             else {
                 //create new academician with updated fields
@@ -219,8 +221,11 @@ namespace AcademicIS {
                     dep.id, dep.name, mailTB.Text, phoneTB.Text, websiteTB.Text,
                     detailRichTB.Rtf);
                
-                db.UpdateAcademician(_ac);
-                ((MainForm)MdiParent).ShowProfileForm(_ac.Id);
+                bool successful = db.UpdateAcademician(_ac);
+                if (successful)
+                    ((MainForm)MdiParent).ShowProfileForm(_ac.Id);
+                else
+                    ShowError("Kayıt güncellenirken bir hata oluştu.");
             }
         }
 

@@ -57,7 +57,7 @@ namespace AcademicIS {
             //ActivateChildForm(new ProfileForm());
             //ActivateChildForm(new ProfileEditForm());
             //FadeOutLoading(1000);
-            HideLoginButton();
+            //HideLoginButton();
 
             //search form will call FadeOutLoading when its completely loaded.
 
