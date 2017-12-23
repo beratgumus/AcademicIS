@@ -108,11 +108,18 @@ namespace AcademicIS
             return ac;
         }
 
-        public bool InsertAcademician(Academician ac) {
+        /// <summary>
+        /// Inserts given academician to database and returns its ID.
+        /// Returns -1 if insertion fails.
+        /// </summary>
+        /// <param name="ac">Academician to insert</param>
+        /// <returns>Inserted academicians id</returns>
+        public int InsertAcademician(Academician ac) {
 
             try {
                 string query = 
                     "INSERT INTO Academician " +
+                    "OUTPUT INSERTED.ID " +
                     "VALUES(@Name, @FacId, @DepId, @Mail, @Phone, @Website, "+
                     "@DetailInfo )";
 
@@ -128,14 +135,14 @@ namespace AcademicIS
                 cmd.Parameters.AddWithValue("@Website", ac.Website);
                 cmd.Parameters.AddWithValue("@DetailInfo", ac.Detail_RTF);
 
-                cmd.ExecuteNonQuery();
+                Int32 insertedId = (Int32)cmd.ExecuteScalar();
 
                 conn.Close();
-                return true;
+                return insertedId;
             }
             catch (Exception e) {
                 Console.WriteLine("An error ocurred when inserting new row. Message: " + e.Message);
-                return false;
+                return -1;
             }
         }
 

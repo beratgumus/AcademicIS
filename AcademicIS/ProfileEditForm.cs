@@ -172,7 +172,12 @@ namespace AcademicIS {
             Academician ac = new Academician(nameTB.Text, facId, depId,
                 mailTB.Text, phoneTB.Text, websiteTB.Text, detailRichTB.Rtf );
 
-            db.InsertAcademician(ac);
+            int insertedId = db.InsertAcademician(ac);
+
+            if (insertedId != -1) {
+                //inserted to db successfully, redirect to profile page
+                ((MainForm)MdiParent).ShowProfileForm(insertedId);
+            }
         }
 
         private void facultyCB_SelectedIndexChanged(object sender, EventArgs e) {
