@@ -278,7 +278,31 @@ namespace AcademicIS
 
         public void DeleteAcademicianCourse(int Id, int day, int session)
         {
+            try
+            {
+                string query =
+                    "DELETE FROM Courses " +
+                    "WHERE Academician_id = @Academician_id " +
+                    "AND   Course_day = @Course_day " +
+                    "AND   Course_session = @Course_session ";
 
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@Academician_id", Id);
+                cmd.Parameters.AddWithValue("@Course_day", day);
+                cmd.Parameters.AddWithValue("@Course_session", session);
+
+
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error ocurred when deleting a row. Message: " + e.Message);
+            }
         }
         public Dictionary<FacDep, List<FacDep>> GetFacultyAndDepartments() {
 
