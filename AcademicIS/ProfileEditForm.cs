@@ -14,11 +14,17 @@ namespace AcademicIS {
         Dictionary<FacDep, List<FacDep>> list;
         DbHelper db;
 
-        int id;
+        Academician ac;
 
-        public ProfileEditForm() {
+        /// <summary>
+        /// This constructor will populate form fields with given academician's
+        /// data. Use empty constructor when adding new academician.
+        /// </summary>
+        /// <param name="id">Id of the academician to load</param>
+        public ProfileEditForm(Academician _ac) {
             InitializeComponent();
             rtfTools.Renderer = new CustomRenderer(); //for styling purposes
+            alertBox.BringToFront();
 
             db = new DbHelper();
             list = db.GetFacultyAndDepartments();
@@ -27,8 +33,33 @@ namespace AcademicIS {
                 facultyCB.Items.Add(fac);
             }
 
-            alertBox.BringToFront();
-        }        
+            this.ac = _ac;
+
+            if(ac != null) {
+                // we will populate form with given academician data
+
+                nameTB.Text = ac.Name;
+                mailTB.Text = ac.Mail;
+                phoneTB.Text = ac.Phone;
+                websiteTB.Text = ac.Website;
+
+                //select faculty from faculty list with LINQ
+                FacDep fac = list.Keys.Single(f => f.id == ac.Faculty_id);
+                facultyCB.SelectedIndex = facultyCB.Items.IndexOf(fac);
+
+                //select department from department list with LINQ
+                FacDep dep = list[fac].Single(d => d.id == ac.Deparment_id);
+                departmentCB.SelectedIndex = departmentCB.Items.IndexOf(dep);
+
+                if (ac.Detail_RTF.StartsWith(@"{\rtf"))
+                    detailRichTB.Rtf = ac.Detail_RTF;
+            }
+        }
+
+        /// <summary>
+        /// This constructor is used when adding new academician
+        /// </summary>
+        public ProfileEditForm() : this(null) { }
 
         #region RichTextBox tool menu styling classes
         private class CustomRenderer : ToolStripProfessionalRenderer {
@@ -166,17 +197,30 @@ namespace AcademicIS {
                 return;
             }
 
-            int facId = ((FacDep)facultyCB.SelectedItem).id;
-            int depId = ((FacDep)departmentCB.SelectedItem).id;
+            FacDep fac = (FacDep)facultyCB.SelectedItem;
+            FacDep dep = (FacDep)departmentCB.SelectedItem;
 
-            Academician ac = new Academician(nameTB.Text, facId, depId,
-                mailTB.Text, phoneTB.Text, websiteTB.Text, detailRichTB.Rtf );
+            if (ac == null) {
+                //Its new academician, lets create it and insert it to db
+                ac = new Academician(-1, nameTB.Text, fac.id, fac.name,
+                    dep.id, dep.name, mailTB.Text, phoneTB.Text, websiteTB.Text,
+                    detailRichTB.Rtf);
 
-            int insertedId = db.InsertAcademician(ac);
+                int insertedId = db.InsertAcademician(ac);
 
-            if (insertedId != -1) {
-                //inserted to db successfully, redirect to profile page
-                ((MainForm)MdiParent).ShowProfileForm(insertedId);
+                if (insertedId != -1) {
+                    //inserted to db successfully, redirect to profile page
+                    ((MainForm)MdiParent).ShowProfileForm(insertedId);
+                }
+            }
+            else {
+                //create new academician with updated fields
+                Academician _ac = new Academician(ac.Id, nameTB.Text, fac.id, fac.name,
+                    dep.id, dep.name, mailTB.Text, phoneTB.Text, websiteTB.Text,
+                    detailRichTB.Rtf);
+               
+                db.UpdateAcademician(_ac);
+                ((MainForm)MdiParent).ShowProfileForm(_ac.Id);
             }
         }
 
@@ -191,10 +235,14 @@ namespace AcademicIS {
             foreach (FacDep dep in depList) {
                 departmentCB.Items.Add(dep);
             }
+
         }
 
         private void cancelButton_Click(object sender, EventArgs e) {
-            ((MainForm)MdiParent).menuSearch_Click(sender, e);
+            if(ac == null)
+                ((MainForm)MdiParent).menuSearch_Click(sender, e);
+            else
+                ((MainForm)MdiParent).ShowProfileForm(ac.Id);
         }
 
         private void ShowError(string message) {

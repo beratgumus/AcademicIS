@@ -28,8 +28,6 @@ namespace AcademicIS {
                 editButtonVisibility = true;
                 deleteButton.Visible = true;
                 deleteButtonVisibility = true;
-
-
             } 
 
             DbHelper db = new DbHelper();
@@ -43,7 +41,6 @@ namespace AcademicIS {
             telLabel.Text = ac.Phone;
             webLabel.Text = ac.Website;
 
-            detailsRTB.Rtf = ac.Detail_RTF;
             if (ac.Detail_RTF.StartsWith(@"{\rtf"))
                 detailsRTB.Rtf = ac.Detail_RTF;
 
@@ -68,6 +65,11 @@ namespace AcademicIS {
         {
             ((MainForm)MdiParent).menuSearch_Click(sender, e);
             
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            ((MainForm)MdiParent).ShowProfileEditForm(ac);
         }
     }
 }

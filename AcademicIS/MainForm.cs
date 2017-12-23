@@ -34,8 +34,6 @@ namespace AcademicIS {
             spinner.Image = AcademicIS.Properties.Resources.spinner2;
             isLoading = true;
             isAdminLoggedIn = false;
-            DbHelper d = new DbHelper();
-            //d.InsertAcademician(new Academician(1, "a", "b", "c"));
             r = 0;
             g = 255;
             b = 0;
@@ -59,6 +57,7 @@ namespace AcademicIS {
             //ActivateChildForm(new ProfileForm());
             //ActivateChildForm(new ProfileEditForm());
             //FadeOutLoading(1000);
+            HideLoginButton();
 
             //search form will call FadeOutLoading when its completely loaded.
 
@@ -253,7 +252,17 @@ namespace AcademicIS {
 
             ActivateChildForm(scheduleForm, false);
             FadeOutLoading();
+        }
 
+        /// <summary>
+        /// Shows profile edit form. Populates form with academician info
+        /// </summary>
+        /// <param name="id"></param>
+        public void ShowProfileEditForm(Academician ac) {
+            ShowLoading();
+            addForm = new ProfileEditForm(ac);
+            ActivateChildForm(addForm, false);
+            FadeOutLoading();
         }
 
         public void ActivateSearchForm()

@@ -99,9 +99,11 @@ namespace AcademicIS
             // is becoming "{\\\\rtf1\\\\ansi". Below line hotfixes that problem by simply
             // replacing it back. Maybe better solution?
             string rtf = row["Detail_info"].ToString().Replace("\\\\", "\\");
+            int facId = int.Parse(row["Faculty_id"].ToString());
+            int depId = int.Parse(row["Department_id"].ToString());
 
-            Academician ac = new Academician(id, row["Name"].ToString(),
-                row["Faculty_name"].ToString(), row["Department_name"].ToString(),
+            Academician ac = new Academician(id, row["Name"].ToString(), facId,
+                row["Faculty_name"].ToString(), depId, row["Department_name"].ToString(),
                 row["Mail"].ToString(), row["Phone"].ToString(),
                 row["Website"].ToString(), rtf);
 
@@ -143,6 +145,40 @@ namespace AcademicIS
             catch (Exception e) {
                 Console.WriteLine("An error ocurred when inserting new row. Message: " + e.Message);
                 return -1;
+            }
+        }
+
+        public bool UpdateAcademician(Academician ac) {
+
+            try {
+                string query =
+                    "UPDATE Academician " +
+                    "SET Name = @Name, Faculty_id = @FacId, Department_id = @DepId, " +
+                    "Mail = @Mail, Phone = @Phone, Website = @Website, " +
+                    "Detail_info = @DetailInfo " +
+                    "WHERE Id = @Id";
+
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@Name", ac.Name);
+                cmd.Parameters.AddWithValue("@FacId", ac.Faculty_id);
+                cmd.Parameters.AddWithValue("@DepId", ac.Deparment_id);
+                cmd.Parameters.AddWithValue("@Mail", ac.Mail);
+                cmd.Parameters.AddWithValue("@Phone", ac.Phone);
+                cmd.Parameters.AddWithValue("@Website", ac.Website);
+                cmd.Parameters.AddWithValue("@DetailInfo", ac.Detail_RTF);
+                cmd.Parameters.AddWithValue("@Id", ac.Id);
+
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+                return true;
+            }
+            catch (Exception e) {
+                Console.WriteLine("An error ocurred when inserting new row. Message: " + e.Message);
+                return false;
             }
         }
 

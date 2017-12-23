@@ -83,11 +83,11 @@
             this.detailsRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.detailsRTB.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.detailsRTB.ForeColor = System.Drawing.Color.White;
-            this.detailsRTB.Location = new System.Drawing.Point(22, 18);
+            this.detailsRTB.Location = new System.Drawing.Point(22, 22);
             this.detailsRTB.Name = "detailsRTB";
             this.detailsRTB.ReadOnly = true;
             this.detailsRTB.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.detailsRTB.Size = new System.Drawing.Size(704, 194);
+            this.detailsRTB.Size = new System.Drawing.Size(704, 190);
             this.detailsRTB.TabIndex = 4;
             this.detailsRTB.Text = "";
             // 
@@ -309,6 +309,7 @@
             this.editButton.Text = "Düzenle";
             this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Visible = false;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // ProfileForm
             // 
