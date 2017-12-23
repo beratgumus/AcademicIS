@@ -23,7 +23,24 @@ namespace AcademicIS {
         ProfileEditForm addForm;
         CourseScheduleForm scheduleForm;
         bool isAdminLoggedIn;
+
         bool isLoading;
+        private int _fadeDelay;
+        public int fadeDelay {
+            // we can adjust this variable whenever we need custom fadeDelay
+            // in child forms. Default delay is 200 ms
+            get {
+                return _fadeDelay;
+            }
+            set {
+                if (value >= 5000)
+                    _fadeDelay = 5000;
+                else if (value < 200)
+                    _fadeDelay = 200;
+                else
+                    _fadeDelay = value;
+            }
+        }
 
         System.Windows.Forms.Timer colorChanger;
         int r, g, b;
@@ -34,6 +51,7 @@ namespace AcademicIS {
             spinner.Image = AcademicIS.Properties.Resources.spinner2;
             isLoading = true;
             isAdminLoggedIn = false;
+            _fadeDelay = 200;
             r = 0;
             g = 255;
             b = 0;
@@ -100,35 +118,23 @@ namespace AcademicIS {
         }
         #endregion
 
-        /// <summary>
-        /// Fadeout loading screen with default delay (timeout) 
-        /// </summary>
-        public void FadeOutLoading() {
-            FadeOutLoading(200);
-        }
 
         /// <summary>
-        /// Fadeout loading screen with custom delay
+        /// Fadeout loading screen
         /// </summary>
-        /// <param name="msDelay">timeout in miliseconds to start fading out</param>
-        private void FadeOutLoading(int msDelay) {
+        public async void FadeOutLoading() {
+
             if (isLoading) {
-                delay.Interval = msDelay;
-                delay.Start();
-            }
-        }
+                //every
+                await AsyncTimeOut(_fadeDelay);
 
-        /// <summary>
-        /// Fade outs loading screen. Intented to use with delay.
-        /// Do not use this directly. It may cause visual glitchs.
-        /// </summary>
-        private void StartFadeOut() {
-            spinner.Hide();
-            spinner.SendToBack();
-            loadingText.Hide();
-            loadingText.SendToBack();
-            loading.FadeOut(false);
-            isLoading = false;
+                spinner.Hide();
+                spinner.SendToBack();
+                loadingText.Hide();
+                loadingText.SendToBack();
+                loading.FadeOut(false);
+                isLoading = false;
+            }
         }
 
         /// <summary>
@@ -171,6 +177,7 @@ namespace AcademicIS {
 
         public void menuSearch_Click(object sender, EventArgs e) {
             ShowLoading();
+
             if (searchForm == null || searchForm.IsDisposed || isAdminLoggedIn) {
                 //search form is not initialized yet or its closed
                 // or admin logged in: lets refresh it to show new academicians
@@ -188,6 +195,21 @@ namespace AcademicIS {
             
         }
 
+        /// <summary>
+        /// This function is used when we need to wait some time asynchornusly.
+        /// It does nothing. Sometimes we will use it to hide loading flickers,
+        /// sometimes we really need it to delay database transactions.
+        /// Also this won't freeze UI thread.
+        /// </summary>
+        /// <param name="msDelay">Timeout in miliseconds</param>
+        /// <returns>always true</returns>
+        public Task<bool> AsyncTimeOut(int msDelay) {
+            return Task.Run(() => {
+                System.Threading.Thread.Sleep(msDelay);
+                return true;
+            });
+        }
+
         private void menuLogin_Click(object sender, EventArgs e) {
 
             if (!isAdminLoggedIn)
@@ -199,10 +221,10 @@ namespace AcademicIS {
             }
         }
 
-        private void delay_Tick(object sender, EventArgs e) {
-            StartFadeOut();
-            delay.Stop();
-        }
+        //private void delay_Tick(object sender, EventArgs e) {
+        //    StartFadeOut();
+        //    delay.Stop();
+        //}
 
         private void addAcademcian_Click(object sender, EventArgs e)
         {

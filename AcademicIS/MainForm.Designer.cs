@@ -23,7 +23,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
             this.menu = new System.Windows.Forms.MenuStrip();
             this.menuSearch = new System.Windows.Forms.ToolStripMenuItem();
             this.menuLogin = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,7 +37,6 @@
             this.borderLeft = new System.Windows.Forms.Panel();
             this.borderRight = new System.Windows.Forms.Panel();
             this.borderBottom = new System.Windows.Forms.Panel();
-            this.delay = new System.Windows.Forms.Timer(this.components);
             this.loadingText = new FlatUI.FlatLabel();
             this.spinner = new System.Windows.Forms.PictureBox();
             this.loading = new AcademicIS.Fade();
@@ -193,11 +191,6 @@
             this.borderBottom.Size = new System.Drawing.Size(802, 5);
             this.borderBottom.TabIndex = 6;
             // 
-            // delay
-            // 
-            this.delay.Interval = 200;
-            this.delay.Tick += new System.EventHandler(this.delay_Tick);
-            // 
             // loadingText
             // 
             this.loadingText.AutoSize = true;
@@ -277,7 +270,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private Fade loading;
-        private System.Windows.Forms.Timer delay;
         private System.Windows.Forms.PictureBox spinner;
         private FlatUI.FlatLabel loadingText;
         private System.Windows.Forms.ToolStripMenuItem addAcademcian;
