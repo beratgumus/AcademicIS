@@ -172,8 +172,9 @@ namespace AcademicIS {
 
         public void menuSearch_Click(object sender, EventArgs e) {
             ShowLoading();
-            if (searchForm == null || searchForm.IsDisposed) {
+            if (searchForm == null || searchForm.IsDisposed || isAdminLoggedIn) {
                 //search form is not initialized yet or its closed
+                // or admin logged in: lets refresh it to show new academicians
                 searchForm = new SearchForm();
                 ActivateChildForm(searchForm, true);
                 //search form will call FadeOutLoading when its completely loaded.

@@ -12,12 +12,13 @@ namespace AcademicIS {
     public partial class ProfileEditForm : Form {
 
         Dictionary<FacDep, List<FacDep>> list;
+        DbHelper db;
 
         public ProfileEditForm() {
             InitializeComponent();
             rtfTools.Renderer = new CustomRenderer(); //for styling purposes
 
-            DbHelper db = new DbHelper();
+            db = new DbHelper();
             list = db.GetFacultyAndDepartments();
 
             foreach (FacDep fac in list.Keys) {
@@ -27,7 +28,16 @@ namespace AcademicIS {
         }
 
         private void saveButton_Click(object sender, EventArgs e) {
+
             var a = detailRichTB.Rtf;
+            int facId = ((FacDep)facultyCB.SelectedItem).id;
+            int depId = ((FacDep)departmentCB.SelectedItem).id;
+
+            Academician ac = new Academician(nameTB.Text, facId, depId,
+                mailTB.Text, phoneTB.Text, websiteTB.Text, detailRichTB.Rtf
+                );
+
+            db.InsertAcademician(ac);
         }
 
         #region RichTextBox tool menu styling classes
@@ -151,9 +161,5 @@ namespace AcademicIS {
 
         }
 
-        private void departmentCB_SelectedIndexChanged(object sender, EventArgs e) {
-            var selected = facultyCB.SelectedItem;
-            var sel2 = departmentCB.SelectedItem;
-        }
     }
 }

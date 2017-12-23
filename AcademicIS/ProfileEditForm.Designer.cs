@@ -29,7 +29,7 @@
             this.nameTB = new FlatUI.FlatTextBox();
             this.mailTB = new FlatUI.FlatTextBox();
             this.phoneTB = new FlatUI.FlatTextBox();
-            this.webpageTB = new FlatUI.FlatTextBox();
+            this.websiteTB = new FlatUI.FlatTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.facultyCB = new FlatUI.FlatComboBox();
@@ -121,20 +121,20 @@
             this.phoneTB.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.phoneTB.UseSystemPasswordChar = false;
             // 
-            // webpageTB
+            // websiteTB
             // 
-            this.webpageTB.BackColor = System.Drawing.Color.Transparent;
-            this.webpageTB.FocusOnHover = false;
-            this.webpageTB.Location = new System.Drawing.Point(104, 74);
-            this.webpageTB.MaxLength = 32767;
-            this.webpageTB.Multiline = false;
-            this.webpageTB.Name = "webpageTB";
-            this.webpageTB.ReadOnly = false;
-            this.webpageTB.Size = new System.Drawing.Size(152, 29);
-            this.webpageTB.TabIndex = 7;
-            this.webpageTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.webpageTB.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.webpageTB.UseSystemPasswordChar = false;
+            this.websiteTB.BackColor = System.Drawing.Color.Transparent;
+            this.websiteTB.FocusOnHover = false;
+            this.websiteTB.Location = new System.Drawing.Point(104, 74);
+            this.websiteTB.MaxLength = 32767;
+            this.websiteTB.Multiline = false;
+            this.websiteTB.Name = "websiteTB";
+            this.websiteTB.ReadOnly = false;
+            this.websiteTB.Size = new System.Drawing.Size(152, 29);
+            this.websiteTB.TabIndex = 7;
+            this.websiteTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.websiteTB.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.websiteTB.UseSystemPasswordChar = false;
             // 
             // label4
             // 
@@ -187,7 +187,6 @@
             this.departmentCB.Name = "departmentCB";
             this.departmentCB.Size = new System.Drawing.Size(152, 24);
             this.departmentCB.TabIndex = 11;
-            this.departmentCB.SelectedIndexChanged += new System.EventHandler(this.departmentCB_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -357,7 +356,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.facultyCB);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.webpageTB);
+            this.Controls.Add(this.websiteTB);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.phoneTB);
             this.Controls.Add(this.mailTB);
@@ -386,7 +385,7 @@
         private FlatUI.FlatTextBox nameTB;
         private FlatUI.FlatTextBox mailTB;
         private FlatUI.FlatTextBox phoneTB;
-        private FlatUI.FlatTextBox webpageTB;
+        private FlatUI.FlatTextBox websiteTB;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private FlatUI.FlatComboBox facultyCB;
