@@ -11,11 +11,23 @@ using System.Windows.Forms;
 namespace AcademicIS {
     public partial class ProfileEditForm : Form {
 
+        Dictionary<string, List<string>> list;
+
         public ProfileEditForm() {
             InitializeComponent();
+            rtfTools.Renderer = new CustomRenderer(); //for styling purposes
 
-            rtfTools.Renderer = new CustomRenderer();
-            //ProfessionalColorTable p = p.
+            DbHelper db = new DbHelper();
+            list = db.GetFacultyAndDepartments();
+
+            foreach (string key in list.Keys) {
+                facultyCB.Items.Add(key);
+            }
+
+        }
+
+        private void saveButton_Click(object sender, EventArgs e) {
+            var a = detailRichTB.Rtf;
         }
 
         #region RichTextBox tool menu styling classes
@@ -107,10 +119,6 @@ namespace AcademicIS {
             detailRichTB.SelectionFont = new Font(selection.Name, selection.Size + diff, style);
         }
 
-        private void saveButton_Click(object sender, EventArgs e) {
-            var a = detailRichTB.Rtf;
-        }
-
         private void insertBullet_Click(object sender, EventArgs e) {
             //detailRichTB.
             detailRichTB.SelectionBullet = !detailRichTB.SelectionBullet;
@@ -128,5 +136,21 @@ namespace AcademicIS {
             detailRichTB.SelectionFont =  new Font(selection.Name, selection.Size, style);
         }
         #endregion
+
+        private void facultyCB_SelectedIndexChanged(object sender, EventArgs e) {
+            if (!departmentCB.Enabled)
+                departmentCB.Enabled = true;
+            else
+                departmentCB.Items.Clear();
+
+
+
+            var depList = list[facultyCB.SelectedItem.ToString()];
+
+            foreach (string department in depList) {
+                departmentCB.Items.Add(department);
+            }
+
+        }
     }
 }

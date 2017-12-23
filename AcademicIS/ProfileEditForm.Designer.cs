@@ -169,6 +169,7 @@
             this.facultyCB.Name = "facultyCB";
             this.facultyCB.Size = new System.Drawing.Size(152, 24);
             this.facultyCB.TabIndex = 9;
+            this.facultyCB.SelectedIndexChanged += new System.EventHandler(this.facultyCB_SelectedIndexChanged);
             // 
             // departmentCB
             // 
@@ -176,6 +177,7 @@
             this.departmentCB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.departmentCB.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.departmentCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.departmentCB.Enabled = false;
             this.departmentCB.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.departmentCB.ForeColor = System.Drawing.Color.White;
             this.departmentCB.FormattingEnabled = true;

@@ -110,26 +110,32 @@ namespace AcademicIS
 
         public bool InsertAcademician(Academician ac) {
 
-            //this query will generate DataTable for insert
-            var sqlQuery = "SELECT * FROM Academician WHERE 0 = 1";
-            SqlDataAdapter adp = new SqlDataAdapter(sqlQuery, conn);
-            DataTable table = new DataTable();
-            adp.Fill(table);
+            try {
+                //this query will generate DataTable for insert
+                var sqlQuery = "SELECT * FROM Academician WHERE 0 = 1";
+                SqlDataAdapter adp = new SqlDataAdapter(sqlQuery, conn);
+                DataTable table = new DataTable();
+                adp.Fill(table);
 
-            var row = table.NewRow();
-            row["Name"] = ac.Name;
-            //row["Faculty_id"] = id;
-            //row["Department_id"] = id;
-            row["Mail"] = ac.Mail;
-            row["Phone"] = ac.Phone;
-            row["Website"] = ac.Website;
+                var row = table.NewRow();
+                row["Name"] = ac.Name;
+                row["Faculty_id"] = ac.Faculty_id;
+                row["Department_id"] = ac.Deparment_id;
+                row["Mail"] = ac.Mail;
+                row["Phone"] = ac.Phone;
+                row["Website"] = ac.Website;
+                row["Detail_info"] = ac.Detail_RTF;
 
-            table.Rows.Add(row);
+                table.Rows.Add(row);
 
-            new SqlCommandBuilder(adp);
-            adp.Update(table);
-
-            return true;
+                new SqlCommandBuilder(adp);
+                adp.Update(table);
+                return true;
+            }
+            catch (Exception e) {
+                Console.WriteLine("An error ocurred when inserting new row. Message: " + e.Message);
+                return false;
+            }
         }
 
         public DataTable GetAcademicianSchedule(int id)
@@ -148,5 +154,32 @@ namespace AcademicIS
             return table;
         }
 
+        public Dictionary<string, List<string>> GetFacultyAndDepartments() {
+
+            DataTable table = new DataTable();
+            string query =
+                "SELECT Faculty_id, Faculty_name, D.Id as Department_id, Department_name " +
+                "FROM Faculty as F, Department as D " +
+                "WHERE D.Faculty_id = F.Id";
+            SqlDataAdapter adp = new SqlDataAdapter(query, conn);
+            conn.Open();
+            adp.Fill(table);
+            conn.Close();
+
+            Dictionary<string, List<string>> list = new Dictionary<string, List<string>>();
+
+            foreach (DataRow row in table.Rows) {
+                string fName = row["Faculty_name"].ToString();
+                string dName = row["Department_name"].ToString();
+
+                if (!list.ContainsKey(fName))
+                    list.Add(fName, new List<string>());
+
+                list[fName].Add(dName);
+
+            }
+
+            return list;
+        }
     }
 }
