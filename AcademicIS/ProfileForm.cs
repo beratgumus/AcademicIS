@@ -44,6 +44,8 @@ namespace AcademicIS {
             webLabel.Text = ac.Website;
 
             detailsRTB.Rtf = ac.Detail_RTF;
+            if (ac.Detail_RTF.StartsWith(@"{\rtf"))
+                detailsRTB.Rtf = ac.Detail_RTF;
 
         }
 
