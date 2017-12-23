@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcademicIS", "AcademicIS\AcademicIS.csproj", "{8607380D-5D18-4540-881A-B159AC79CFBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcademicISTests", "AcademicISTests\AcademicISTests.csproj", "{DFCE4FF8-C884-4286-AD88-59EA827F2095}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{8607380D-5D18-4540-881A-B159AC79CFBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8607380D-5D18-4540-881A-B159AC79CFBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8607380D-5D18-4540-881A-B159AC79CFBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFCE4FF8-C884-4286-AD88-59EA827F2095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFCE4FF8-C884-4286-AD88-59EA827F2095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFCE4FF8-C884-4286-AD88-59EA827F2095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFCE4FF8-C884-4286-AD88-59EA827F2095}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
