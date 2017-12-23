@@ -77,6 +77,7 @@
       <DependentUpon>database.xsd</DependentUpon>
     </Compile>
     <Compile Include="DbHelper.cs" />
+    <Compile Include="FacDep.cs" />
     <Compile Include="Fade.cs">
       <SubType>UserControl</SubType>
     </Compile>
