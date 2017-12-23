@@ -12,7 +12,8 @@ namespace AcademicIS {
     public partial class ProfileForm : Form {
 
         Academician ac;
-
+        bool editButtonVisibility=false;
+        bool deleteButtonVisibility=false;
         /// <summary>
         /// Create profile of academican with given id
         /// </summary>
@@ -24,7 +25,11 @@ namespace AcademicIS {
             if (isAdminLoggedIn)
             {
                 editButton.Visible = true;
+                editButtonVisibility = true;
                 deleteButton.Visible = true;
+                deleteButtonVisibility = true;
+
+
             } 
 
             DbHelper db = new DbHelper();
@@ -41,10 +46,15 @@ namespace AcademicIS {
             detailsRTB.Rtf = ac.Detail_RTF;
 
         }
+        public bool getEditButtonVisibility()
+        {
+            return editButtonVisibility;
+        }
 
         private void backButton_Click(object sender, EventArgs e)
         {
             ((MainForm)MdiParent).menuSearch_Click(sender, e);
+            
         }
     }
 }
