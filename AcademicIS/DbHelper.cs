@@ -111,25 +111,26 @@ namespace AcademicIS
         public bool InsertAcademician(Academician ac) {
 
             try {
-                //this query will generate DataTable for insert
-                var sqlQuery = "SELECT * FROM Academician WHERE 0 = 1";
-                SqlDataAdapter adp = new SqlDataAdapter(sqlQuery, conn);
-                DataTable table = new DataTable();
-                adp.Fill(table);
+                string query = 
+                    "INSERT INTO Academician " +
+                    "VALUES(@Name, @FacId, @DepId, @Mail, @Phone, @Website, "+
+                    "@DetailInfo )";
 
-                var row = table.NewRow();
-                row["Name"] = ac.Name;
-                row["Faculty_id"] = ac.Faculty_id;
-                row["Department_id"] = ac.Deparment_id;
-                row["Mail"] = ac.Mail;
-                row["Phone"] = ac.Phone;
-                row["Website"] = ac.Website;
-                row["Detail_info"] = ac.Detail_RTF;
+                conn.Open();
 
-                table.Rows.Add(row);
+                SqlCommand cmd = new SqlCommand(query, conn);
 
-                new SqlCommandBuilder(adp);
-                adp.Update(table);
+                cmd.Parameters.AddWithValue("@Name", ac.Name);
+                cmd.Parameters.AddWithValue("@FacId", ac.Faculty_id);
+                cmd.Parameters.AddWithValue("@DepId", ac.Deparment_id);
+                cmd.Parameters.AddWithValue("@Mail", ac.Mail);
+                cmd.Parameters.AddWithValue("@Phone", ac.Phone);
+                cmd.Parameters.AddWithValue("@Website", ac.Website);
+                cmd.Parameters.AddWithValue("@DetailInfo", ac.Detail_RTF);
+
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
                 return true;
             }
             catch (Exception e) {
