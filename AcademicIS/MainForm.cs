@@ -235,7 +235,7 @@ namespace AcademicIS {
         /// Opens academician profile with given academician id
         /// </summary>
         /// <param name="id">identifier of academician</param>
-        public void ShowProfileForm(int id) {
+        public ProfileForm ShowProfileForm(int id) {
             ShowLoading();
             profileForm = new ProfileForm(id, isAdminLoggedIn);
 
@@ -243,9 +243,7 @@ namespace AcademicIS {
             ActivateChildForm(profileForm, false); 
 
             FadeOutLoading();
-
-
-
+            return profileForm;
         }
 
         public void ShowScheduleForm(int id){
@@ -265,6 +263,16 @@ namespace AcademicIS {
 
 
 
+        }
+
+        public bool getIsAdminLoggedIn()
+        {
+            return isAdminLoggedIn;
+        }
+
+        public void setIsAdminLoggedIn(bool _isAdminLoggedIn)
+        {
+            this.isAdminLoggedIn =_isAdminLoggedIn;
         }
 
         private void ChangeColor(object sender, EventArgs e) {
