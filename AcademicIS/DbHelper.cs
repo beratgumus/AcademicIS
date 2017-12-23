@@ -154,7 +154,7 @@ namespace AcademicIS
             return table;
         }
 
-        public Dictionary<string, List<string>> GetFacultyAndDepartments() {
+        public Dictionary<FacDep, List<FacDep>> GetFacultyAndDepartments() {
 
             DataTable table = new DataTable();
             string query =
@@ -166,16 +166,21 @@ namespace AcademicIS
             adp.Fill(table);
             conn.Close();
 
-            Dictionary<string, List<string>> list = new Dictionary<string, List<string>>();
+            Dictionary<FacDep, List<FacDep>> list = new Dictionary<FacDep, List<FacDep>>();
 
             foreach (DataRow row in table.Rows) {
-                string fName = row["Faculty_name"].ToString();
-                string dName = row["Department_name"].ToString();
+                FacDep fac = new FacDep();
+                fac.id = int.Parse(row["Faculty_id"].ToString());
+                fac.name = row["Faculty_name"].ToString();
 
-                if (!list.ContainsKey(fName))
-                    list.Add(fName, new List<string>());
+                FacDep dep = new FacDep();
+                dep.id = int.Parse(row["Department_id"].ToString());
+                dep.name = row["Department_name"].ToString();
 
-                list[fName].Add(dName);
+                if (!list.ContainsKey(fac))
+                    list.Add(fac, new List<FacDep>());
+
+                list[fac].Add(dep);
 
             }
 

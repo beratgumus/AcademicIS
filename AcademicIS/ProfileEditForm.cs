@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace AcademicIS {
     public partial class ProfileEditForm : Form {
 
-        Dictionary<string, List<string>> list;
+        Dictionary<FacDep, List<FacDep>> list;
 
         public ProfileEditForm() {
             InitializeComponent();
@@ -20,8 +20,8 @@ namespace AcademicIS {
             DbHelper db = new DbHelper();
             list = db.GetFacultyAndDepartments();
 
-            foreach (string key in list.Keys) {
-                facultyCB.Items.Add(key);
+            foreach (FacDep fac in list.Keys) {
+                facultyCB.Items.Add(fac);
             }
 
         }
@@ -143,14 +143,17 @@ namespace AcademicIS {
             else
                 departmentCB.Items.Clear();
 
+            var depList = list[(FacDep)facultyCB.SelectedItem];
 
-
-            var depList = list[facultyCB.SelectedItem.ToString()];
-
-            foreach (string department in depList) {
-                departmentCB.Items.Add(department);
+            foreach (FacDep dep in depList) {
+                departmentCB.Items.Add(dep);
             }
 
+        }
+
+        private void departmentCB_SelectedIndexChanged(object sender, EventArgs e) {
+            var selected = facultyCB.SelectedItem;
+            var sel2 = departmentCB.SelectedItem;
         }
     }
 }

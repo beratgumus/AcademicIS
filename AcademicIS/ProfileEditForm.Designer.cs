@@ -187,6 +187,7 @@
             this.departmentCB.Name = "departmentCB";
             this.departmentCB.Size = new System.Drawing.Size(152, 24);
             this.departmentCB.TabIndex = 11;
+            this.departmentCB.SelectedIndexChanged += new System.EventHandler(this.departmentCB_SelectedIndexChanged);
             // 
             // label6
             // 
