@@ -128,6 +128,12 @@ namespace AcademicIS {
                 //every
                 await AsyncTimeOut(_fadeDelay);
 
+                // if any childform changed delay time, lets reset it after
+                // delaying requested time. So we wont delay that custom time
+                // everytime.
+                if (_fadeDelay != 200)
+                    _fadeDelay = 200;
+                
                 spinner.Hide();
                 spinner.SendToBack();
                 loadingText.Hide();

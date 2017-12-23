@@ -279,6 +279,9 @@ namespace AcademicIS {
 
             if (confirmResult == DialogResult.Yes) {
                 db.DeleteAcademician(ac.Id);
+
+                //lets delay loading screen a little bit more once time.
+                ((MainForm)MdiParent).fadeDelay = 1000;
                 ((MainForm)MdiParent).menuSearch_Click(sender, e);
             }
         }
