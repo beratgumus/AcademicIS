@@ -12,9 +12,12 @@ namespace AcademicIS
 {
     public partial class CourseScheduleForm : Form
     {
+        
         int Id;
         bool editButtonVisibility = false;
         bool deleteButtonVisibility = false;
+        DataTable oldTable;
+
         public CourseScheduleForm(int id,bool isAdminLoggedIn)
         {
             this.Id = id;
@@ -23,7 +26,7 @@ namespace AcademicIS
             {
                 editButton.Visible = true;
                 editButtonVisibility = true;
-                deleteButton.Visible = true;
+                saveButton.Visible = true;
                 deleteButtonVisibility = true;
             }
             Dictionary<int,string>  courseSession = new Dictionary<int, string>();
@@ -92,7 +95,65 @@ namespace AcademicIS
         {
             courseSchedule.EditMode = DataGridViewEditMode.EditOnKeystroke;
             courseSchedule.ReadOnly = false;
+            oldTable = ToDataTable(courseSchedule);
             
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+
+            DataTable table = ToDataTable(courseSchedule);
+            DbHelper db = new DbHelper();
+
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                for (int j = 0; j < table.Columns.Count; j++)
+                {
+                    int day = j + 1;
+                    int session = i + 1;
+                    string newValue = table.Rows[i][j].ToString();
+                    string oldValue = oldTable.Rows[i][j].ToString();
+
+                    if (newValue == "" && oldValue !="")
+                    {
+                        db.DeleteAcademicianCourse(Id,day,session);
+                    }
+                                    
+                    else if (oldValue == "" && newValue !="" )
+                    {
+                            db.InsertAcademicianCourse(Id, day, session,newValue);
+                    }
+                    else if(oldValue != "" && newValue != "" && oldValue != newValue)
+                    {
+                            db.UpdateAcademicianCourse(Id, day, session, newValue);
+                    }
+                    
+                    
+                }
+            }
+
+        }
+
+        private DataTable ToDataTable(DataGridView dataGridView)
+        {
+            var dt = new DataTable();
+            foreach (DataGridViewColumn dataGridViewColumn in dataGridView.Columns)
+            {
+                if (dataGridViewColumn.Visible)
+                {
+                    dt.Columns.Add();
+                }
+            }
+            var cell = new object[dataGridView.Columns.Count];
+            foreach (DataGridViewRow dataGridViewRow in dataGridView.Rows)
+            {
+                for (int i = 0; i < dataGridViewRow.Cells.Count; i++)
+                {
+                    cell[i] = dataGridViewRow.Cells[i].Value;
+                }
+                dt.Rows.Add(cell);
+            }
+            return dt;
         }
     }
 }
