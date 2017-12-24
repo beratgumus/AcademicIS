@@ -53,8 +53,8 @@ namespace AcademicIS {
             isAdminLoggedIn = false;
             _fadeDelay = 200;
             r = 0;
-            g = 255;
-            b = 0;
+            g = 166;
+            b = 89;
             colorChanger = new System.Windows.Forms.Timer();
             colorChanger.Interval = 250;
             colorChanger.Tick += ChangeColor;
