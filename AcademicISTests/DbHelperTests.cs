@@ -14,8 +14,8 @@ namespace AcademicIS.Tests
         [TestMethod()]
         public void GetAcademicianTest()
         {
-            Academician ac = new Academician(-1,"Ahmet",1,"Mühendislik Fakültesi",4,"Elektrik Mühendisliği",
-                                              "ahmet@mail.com","5326569894","www.ahmet.com","Özgeçmiş burada :)");
+            Academician ac = new Academician(-1,"Ahmet",1, "Mühendislik Fakültesi", 4, "Elektrik-Elektronik Mühendisliği",
+                                              "ahmet@mail.com","05326569894","ahmet.com","Özgeçmiş burada :)");
             DbHelper db = new DbHelper();
             int insertedId = db.InsertAcademician(ac);
             ac.Id = insertedId;
