@@ -127,10 +127,10 @@
             this.listPanel.ColumnCount = 3;
             this.listPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 77.82738F));
             this.listPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.17262F));
-            this.listPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
+            this.listPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.listPanel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.listPanel.ForeColor = System.Drawing.Color.White;
-            this.listPanel.Location = new System.Drawing.Point(35, 99);
+            this.listPanel.Location = new System.Drawing.Point(16, 103);
             this.listPanel.MaximumSize = new System.Drawing.Size(725, 300);
             this.listPanel.MinimumSize = new System.Drawing.Size(450, 30);
             this.listPanel.Name = "listPanel";
