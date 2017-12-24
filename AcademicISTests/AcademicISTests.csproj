@@ -58,6 +58,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CourseScheduleFormTests.cs" />
+    <Compile Include="DbHelperTests.cs" />
     <Compile Include="MainFormTests.cs" />
     <Compile Include="ProfileFormTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
