@@ -61,6 +61,7 @@
     <Compile Include="DbHelperTests.cs" />
     <Compile Include="MainFormTests.cs" />
     <Compile Include="ProfileFormTests.cs" />
+    <Compile Include="FacDepTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -11,34 +11,19 @@ namespace AcademicIS.Tests
     [TestClass()]
     public class FacDepTests
     {
-        [TestMethod()]
-        public void FacDepTest()
-        {
-            Assert.Fail();
-        }
 
         [TestMethod()]
-        public void FacDepTest1()
+        public void FacDepEqualsTest()
         {
-            Assert.Fail();
-        }
+            FacDep f1 = new FacDep(1, "Mühendislik Fakültesi");
+            FacDep f2 = new FacDep(1, "Mühendislik Fakültesi");
+            FacDep f3 = new FacDep(2, "Tıp Fakültesi");
 
-        [TestMethod()]
-        public void ToStringTest()
-        {
-            Assert.Fail();
-        }
+            if (!f1.Equals(f2))
+                Assert.Fail();
 
-        [TestMethod()]
-        public void GetHashCodeTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void EqualsTest()
-        {
-            Assert.Fail();
+            if(f1.Equals(f3))
+                Assert.Fail();
         }
     }
 }
