@@ -19,12 +19,16 @@ namespace AcademicIS {
 
         #region Styling GUI
         Font labelFont = new Font("Segoe UI", 12F);
-        Padding labelPadding = new Padding(20, 5, 0, 0);
+        Padding labelPadding = new Padding(5, 2, 0, 0);
         Size buttonSize = new Size(200, 30);
         #endregion
 
         public SearchForm() {
             InitializeComponent();
+
+            //int vertScrollWidth = SystemInformation.VerticalScrollBarWidth;
+            listPanel.Padding = new Padding(0, 0, 5, 0);
+
             acList = new List<Academician>();
             facultyCB.SelectedIndex = 0;
             departmentCB.SelectedIndex = 0;
